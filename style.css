@@ -5,6 +5,8 @@ body{
     font-family: "Poppins", sans-serif;
 }
 
+/* navbar 1 */
+
 .navbar{
     background-color: #FF8DB6;
     height: 10vh;
@@ -41,6 +43,10 @@ body{
 
 .menu1 ul li a:hover {
     color: #FE377F;
+}
+
+.menu1 ul li a{
+    transition: color 0.5s ease-in-out;
 }
 
 .authbuttons{
@@ -82,3 +88,165 @@ body{
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra ao redor do banner */
 }
 
+/* container do legado */
+
+.container-legado{
+    display: flex;
+    margin: 10px 20px;
+}
+
+.text-legado{
+    width: 60%;
+    padding: 0 20px;
+}
+
+.text-legado h1{
+    color:#FF8DB6;
+    font-size: 50px;
+    text-align: center;
+}
+
+.text-legado p{
+    font-size: 18px;
+    text-align: start;
+}
+
+.text-legado hr{
+    background-color: #FF8DB6;
+    height: 2px;
+    border: none;
+    border-radius: 20px;
+}
+
+.imagem-legado{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagem-legado img{
+    width: 400px;
+    height: 400px;
+}
+
+/* parte do show */
+
+.container-show{
+    background-color: #FF8DB6;
+    height: auto; /* mudar isso? nao sei ainda como melhorar */
+    border-radius: 25px;
+    padding-bottom: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.container2-show{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.titulo-show{
+    text-align: center;
+    color: #FE377F;
+    font-size: 80px;
+    margin-bottom: 0;
+}
+
+.text-show{
+    width: 40%;
+}
+
+.text-show p{
+    font-size: 18px;
+    text-align: start;
+    color: #f5f5f5;
+}
+
+.text-show hr{
+    background-color: #FE377F;
+    height: 2px;
+    border: none;
+    border-radius: 20px;
+}
+
+.grafico-show{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+}
+
+.grafico-show img{
+    width: 500px;
+    height: 500px;
+}
+
+/* container da economia */
+
+.container-economia{
+    display: flex;
+    margin: 10px 20px;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagem-economia{
+    display: flex;
+    justify-content: center;
+    width: 40%;
+}
+
+.imagem-economia img{
+    width: 400px;
+    height: 550px;
+}
+
+.text-economia{
+    width: 60%;
+    text-align: center;
+}
+
+.text-economia h1{
+    color: #FF8DB6;
+    font-size: 60px;
+    margin-bottom: 0;
+}
+
+.text-economia p{
+    font-size: 20px;
+}
+
+.imagem-ods img{
+    width: 200px;
+    height: 200px;
+}
+
+footer{
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    border-top: 1px solid #d7d7d7;
+}
+
+.logo-footer{
+    display: flex;
+    align-items: center;
+}
+
+.logo-footer img{
+    width: 100px;
+    height: 50px;
+}
+
+.text-footer p{
+    transition: color 0.5s ease-in-out;
+}
+
+.text-footer p:hover{
+    color: #FE377F;
+}
