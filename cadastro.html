@@ -17,7 +17,7 @@
             </div>
             <div class="menu1">
                 <ul>
-                    <li><a href="#">Home</a></li>
+                    <li><a href="/index.html">Home</a></li>
                     <li class="divider"> // </li>
                     <li><a href="#">Sobre</a></li>
                     <li class="divider"> // </li>
@@ -31,19 +31,34 @@
         </nav>
     </header>
 
-    <div class="container-login">
-        <div class="login-wrapper">
-            <div class="text-login">
+    <div class="container-cadastro">
+        <div class="cadastro-wrapper">
+            <div class="text-cadastro">
                 <h1 id="login"> <a href="../SwiftHub/login.html"> Login </a> </h1>
                 <h1 id="cadastro"><a href="../SwiftHub/login.html">Cadastro</a></h1>
             </div>
-            <div class="inputs-login"> 
-                <input type="text" placeholder="Digite seu nome de usuário:">
+            <div class="inputs-cadastro"> 
+                <input type="text" placeholder="Digite seu nome:">
+                <input type="text" placeholder="Digite seu usuário:">
                 <input type="password" placeholder="Digite sua senha:"> 
-                <!-- input ou fazer um form? qual é melhor -->
+                <input type="password" placeholder="Repita sua senha:"> 
+                <select id="selectAlbuns">
+                    <option value="" disabled selected>Selecione seu album favorito:</option>
+                    <option value="taylorswift">Taylor Swift</option>
+                    <option value="fearless">Fearless</option>
+                    <option value="speaknow">Speak Now</option>
+                    <option value="red">Red</option>
+                    <option value="1989">1989</option>
+                    <option value="reputation">Reputation</option>
+                    <option value="lover">Lover</option>
+                    <option value="folklore">Folklore</option>
+                    <option value="evermore">Evermore</option>
+                    <option value="midnights">Midnights</option>
+                    <option value="ttpd">The Tortured Poets Departament</option>
+                </select> 
             </div>
-            <div class="botao-entrar">
-                <a href="#" class="entrar-button">Entrar</a>
+            <div class="botao-cadastro">
+                <a href="#" class="cadastrar-button">Criar conta</a>
             </div>
         </div>
     </div>

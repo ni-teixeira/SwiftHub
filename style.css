@@ -254,15 +254,21 @@ footer{
 /* login */
 
 .auth-background {
-    margin: 0;
     background-image: url('../images/fundoauth.png'); 
     background-size: cover; 
     height: 100vh;
 }
 
 .container-login{
-    width: 60%;
+    width: 100%;
     height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.login-wrapper{
+    width: 60%;
 }
 
 .text-login{
@@ -272,14 +278,19 @@ footer{
     gap: 20px;
 }
 
-.text-login #login{
+.text-login a{
+    text-decoration: none;
+}
+
+.text-login #login a{
     color: #FE377F;
     font-weight: bold;
     font-size: 50px;
     text-decoration: underline 2px;
+    text-underline-offset: 1.2rem;
 }
 
-.text-login #cadastro{
+.text-login #cadastro a{
     color: #FF8DB6;
     font-weight: bold;
     font-size: 50px;
@@ -290,15 +301,17 @@ footer{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 20px;
 }
 
 .inputs-login input{
     background-color: #f5f5f5;
     border: none;
     border-radius: 8px;
-    width: 60%;
+    width: 50%;
     height: 6vh;
     color: #FF8DB6;
+    font-size: 20px;
 }
 
 .entrar-button{
@@ -309,13 +322,113 @@ footer{
     font-size: 20px;
     width: 15%;
     height: 6vh;
+    border-radius: 10px;
+    margin: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 10px;
-    margin: 20px;
+}
+
+.botao-entrar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .auth-footer{
     background-color: #FFFFFF;
+}
+
+/* cadastro */
+
+.container-cadastro{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.cadastro-wrapper{
+    width: 60%;
+}
+
+.text-cadastro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.text-cadastro a{
+    text-decoration: none;
+}
+
+.text-cadastro #cadastro a{
+    color: #FE377F;
+    font-weight: bold;
+    font-size: 50px;
+    text-decoration: underline 2px;
+    text-underline-offset: 1.2rem;
+}
+
+.text-cadastro #login a{
+    color: #FF8DB6;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+#selectAlbuns{
+    background-color: #f5f5f5;
+    border: none;
+    border-radius: 8px;
+    width: 50%;
+    height: 6vh;
+    color: #FF8DB6;
+    font-size: 20px;
+}
+
+.inputs-cadastro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.inputs-cadastro input{
+    background-color: #f5f5f5;
+    border: none;
+    border-radius: 8px;
+    width: 50%;
+    height: 6vh;
+    color: #FF8DB6;
+    font-size: 20px;
+}
+
+input::placeholder {
+    color: #FF8DB6;
+    opacity: 1; 
+}
+
+
+.cadastrar-button{
+    background-color: #FF8DB6;
+    color: #f5f5f5;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    width: 15%;
+    height: 6vh;
+    border-radius: 10px;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botao-cadastro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
