@@ -220,8 +220,8 @@ body{
 }
 
 .imagem-ods img{
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
 }
 
 footer{
@@ -249,4 +249,73 @@ footer{
 
 .text-footer p:hover{
     color: #FE377F;
+}
+
+/* login */
+
+.auth-background {
+    margin: 0;
+    background-image: url('../images/fundoauth.png'); 
+    background-size: cover; 
+    height: 100vh;
+}
+
+.container-login{
+    width: 60%;
+    height: 80vh;
+}
+
+.text-login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.text-login #login{
+    color: #FE377F;
+    font-weight: bold;
+    font-size: 50px;
+    text-decoration: underline 2px;
+}
+
+.text-login #cadastro{
+    color: #FF8DB6;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.inputs-login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputs-login input{
+    background-color: #f5f5f5;
+    border: none;
+    border-radius: 8px;
+    width: 60%;
+    height: 6vh;
+    color: #FF8DB6;
+}
+
+.entrar-button{
+    background-color: #FF8DB6;
+    color: #f5f5f5;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    width: 15%;
+    height: 6vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+.auth-footer{
+    background-color: #FFFFFF;
 }
