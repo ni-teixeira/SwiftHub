@@ -1,0 +1,443 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body{
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+
+/* navbar 1 */
+
+.navbar{
+    background-color: transparent;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo1 img{
+    width: 150px;
+}
+
+.menu1 ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.menu1 ul li a{
+    text-decoration: none;
+    color: #f5f5f5;
+    font-size: 25px;
+}
+
+.menu1 .divider{
+    color: #f5f5f5;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu1 ul li a:hover {
+    color: #FE377F;
+}
+
+.menu1 ul li a{
+    transition: color 0.5s ease-in-out;
+}
+
+.authbuttons{
+    display: flex;
+    align-items: center;
+    align-self: center;
+    gap: 20px;
+}
+
+.authbuttons a{
+    text-decoration: none;
+    color: #f5f5f5;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+
+.authbuttons #login{
+    background-color: #FE377F;
+    border-radius: 10px;
+    border: none;
+    height: 30px;
+    width: 130px;
+}
+
+.banner {
+    width: 100%;
+    margin-top: -4px;
+    height: 90vh;
+}
+
+.image {
+    background-image: url(../assets/images/banner1.png);
+    background-size: 100% 100%;
+    border-radius: 0 0 30px 30px; /* canto arredondado apenas em baixo */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra ao redor do banner */
+}
+
+.banner img {
+    width: 100%; 
+    height: auto; /* mudar imagem */
+    border-radius: 0 0 30px 30px; /* canto arredondado apenas em baixo */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra ao redor do banner */
+}
+
+/* container do legado */
+
+.container-legado{
+    display: flex;
+    margin: 10px 20px;
+}
+
+.text-legado{
+    width: 60%;
+    padding: 0 20px;
+}
+
+.text-legado h1{
+    color:#FF8DB6;
+    font-size: 50px;
+    text-align: center;
+}
+
+.text-legado p{
+    font-size: 18px;
+    text-align: start;
+}
+
+.text-legado hr{
+    background-color: #FF8DB6;
+    height: 2px;
+    border: none;
+    border-radius: 20px;
+}
+
+.imagem-legado{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagem-legado img{
+    width: 400px;
+    height: 400px;
+}
+
+/* parte do show */
+
+.container-show{
+    background-color: #FF8DB6;
+    height: auto; /* mudar isso? nao sei ainda como melhorar */
+    border-radius: 25px;
+    padding-bottom: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.container2-show{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.titulo-show{
+    text-align: center;
+    color: #FE377F;
+    font-size: 80px;
+    margin-bottom: 0;
+}
+
+.text-show{
+    width: 40%;
+}
+
+.text-show p{
+    font-size: 18px;
+    text-align: start;
+    color: #f5f5f5;
+}
+
+.text-show hr{
+    background-color: #FE377F;
+    height: 2px;
+    border: none;
+    border-radius: 20px;
+}
+
+.grafico-show{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+}
+
+.grafico-show img{
+    width: 500px;
+    height: 500px;
+}
+
+/* container da economia */
+
+.container-economia{
+    display: flex;
+    margin: 10px 20px;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagem-economia{
+    display: flex;
+    justify-content: center;
+    width: 40%;
+}
+
+.imagem-economia img{
+    width: 400px;
+    height: 550px;
+}
+
+.text-economia{
+    width: 60%;
+    text-align: center;
+}
+
+.text-economia h1{
+    color: #FF8DB6;
+    font-size: 60px;
+    margin-bottom: 0;
+}
+
+.text-economia p{
+    font-size: 20px;
+}
+
+.imagem-ods img{
+    width: 150px;
+    height: 150px;
+}
+
+footer{
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    border-top: 1px solid #d7d7d7;
+}
+
+.logo-footer{
+    display: flex;
+    align-items: center;
+}
+
+.logo-footer img{
+    width: 100px;
+    height: 50px;
+}
+
+.text-footer p{
+    transition: color 0.5s ease-in-out;
+}
+
+.text-footer p:hover{
+    color: #FE377F;
+}
+
+/* login */
+
+.image-login {
+    background-image: url('../assets/images/banner-login.png'); 
+    background-size: cover; 
+    height: 90vh;
+}
+
+.container-login{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.login-wrapper{
+    width: 60%;
+}
+
+.text-login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.text-login a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.text-login #login a{
+    color: #FE377F;
+    font-weight: bold;
+    font-size: 50px;
+    text-decoration: underline 2px;
+    text-underline-offset: 1.2rem;
+}
+
+.text-login #cadastro a{
+    color: #FF8DB6;
+    font-weight: bold;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+.inputs-login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.inputs-login input{
+    background-color: #f5f5f5;
+    border: none;
+    border-radius: 8px;
+    width: 50%;
+    height: 6vh;
+    color: #FE377F;
+    font-size: 20px;
+}
+
+.entrar-button{
+    background-color: #FF8DB6;
+    color: #f5f5f5;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    width: 15%;
+    height: 6vh;
+    border-radius: 10px;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+
+.botao-entrar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-footer{
+    background-color: #FFFFFF;
+}
+
+/* cadastro */
+
+.container-cadastro{
+    width: 100%;
+    height: 80vh;
+    display: none;
+    align-items: center;
+    justify-content: start;
+}
+
+.cadastro-wrapper{
+    width: 60%;
+}
+
+.text-cadastro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.text-cadastro a{
+    text-decoration: none;
+}
+
+.text-cadastro #cadastro a{
+    color: #FE377F;
+    font-weight: bold;
+    font-size: 50px;
+    text-decoration: underline 2px;
+    text-underline-offset: 1.2rem;
+}
+
+.text-cadastro #login a{
+    color: #FF8DB6;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+#selectAlbuns{
+    background-color: #f5f5f5;
+    border: none;
+    border-radius: 8px;
+    width: 50%;
+    height: 6vh;
+    color: #FF8DB6;
+    font-size: 20px;
+}
+
+.inputs-cadastro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.inputs-cadastro input{
+    background-color: #f5f5f5;
+    border: none;
+    border-radius: 8px;
+    width: 50%;
+    height: 6vh;
+    color: #FE377F;
+    font-size: 20px;
+}
+
+input::placeholder {
+    color: #FF8DB6;
+    opacity: 1; 
+}
+
+.cadastro-button{
+    background-color: #FF8DB6;
+    color: #f5f5f5;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    width: 20%;
+    height: 6vh;
+    border-radius: 10px;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+
+.botao-cadastro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
