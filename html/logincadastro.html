@@ -40,8 +40,8 @@
         <div class="container-login">
             <div class="login-wrapper">
                 <div class="text-login">
-                    <h1 id="login"> <a> Login </a> </h1>
-                    <h1 id="cadastro" onclick="hidelogin()"><a>Cadastro</a></h1>
+                    <h1 id="login-login"> <a> Login </a> </h1>
+                    <h1 id="cadastro-login" onclick="hidelogin()"><a>Cadastro</a></h1>
                 </div>
 
                 <div class="formulario">
@@ -66,18 +66,25 @@
         <div class="container-cadastro">
             <div class="cadastro-wrapper">
                 <div class="text-cadastro">
-                    <h1 id="login" onclick="hidecadastro()"> <a> Login </a> </h1>
-                    <h1 id="cadastro"><a>Cadastro</a></h1>
+                    <h1 id="login-cadastro" onclick="hidecadastro()"> <a> Login </a> </h1>
+                    <h1 id="cadastro-cadastro"><a>Cadastro</a></h1>
                 </div>
 
                 <div class="formulario">
                     <form>
                         <div class="inputs-cadastro">
-                            <input id="inputNome" type="text" placeholder="Digite seu nome:" required>
-                            <input id="inputEmail" oninput="validarEmail()" type="text" placeholder="Digite seu e-mail:"
-                                required>
+
+                            <input id="inputNome" type="text" placeholder="Digite seu nome:" oninput="validarNome()">
+                            <div id="mensagemErroNome"></div>
+
+                            <input id="inputEmail" oninput="validarEmail()" type="text"
+                                placeholder="Digite seu e-mail:">
+                            <div id="mensagemErroEmail"></div>
+
                             <input id="inputSenha" oninput="validarSenha()" type="password"
-                                placeholder="Digite sua senha:" required>
+                                placeholder="Digite sua senha:">
+                            <div id="mensagemErroSenha"></div>
+
                             <select id="selectAlbuns">
                                 <option value="" disabled selected>Selecione seu album favorito:</option>
                                 <option value="taylorswift">Taylor Swift</option>
@@ -98,7 +105,6 @@
                             <button class="cadastro-button" type="submit">Cadastre-se</button>
                         </div>
 
-                        <div id="mensagemErroCadastro" style="background-color: white; color: red;"></div>
                     </form>
                 </div>
 
@@ -117,54 +123,7 @@
 
 </body>
 
-<script>
-
-    var login = document.querySelector(".container-login");
-    var cadastro = document.querySelector(".container-cadastro");
-
-    function hidelogin() {
-        login.style.display = "none";
-        cadastro.style.display = "flex";
-    }
-
-    function hidecadastro() {
-        login.style.display = "flex";
-        cadastro.style.display = "none";
-    }
-
-    var nome = inputNome.value;
-    var email = inputEmail.value;
-    var senha = inputSenha.value;
-    var albumFav = selectAlbuns.value;
-
-    function validarSenha() {
-        mensagemErroCadastro.innerHTML = "";
-
-        var tamanhoSenha = senha.length;
-
-        // valida tamanho da senha
-        if (tamanhoSenha < 8) {
-            mensagemErroCadastro.innerHTML = `A senha precisa ter 8 caracteres. <br>`;
-        }
-
-    }
-
-    function validarEmail() {
-
-        // valida se tem .com ou .br
-        var finalEmailCom = email.endsWith('.com')
-        var finalEmailBr = email.endsWith('.br')
-        if (!finalEmailCom && !finalEmailBr) { // o ! significa negacao ou seja se for false
-            mensagemErroCadastro.innerHTML = `O e-mail não é válido. Deve terminar com '.com' ou '.br'. <br>`;
-        }
-
-        // valida se tem arroba
-        var arroba = email.includes('@');
-        if (!arroba) {
-            mensagemErroCadastro.innerHTML = `O e-mail não é válido. Deve conter '@'.<br>`;
-        }
-    }
-
-</script>
+<script src="../js/script.cadastro.js"></script>
+<script src="../js/validacao.cadastro.js"></script>
 
 </html>

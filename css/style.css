@@ -1,14 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-body{
+body {
     margin: 0;
     font-family: "Poppins", sans-serif;
 }
 
-
 /* navbar 1 */
 
-.navbar{
+.navbar {
     background-color: transparent;
     height: 10vh;
     display: flex;
@@ -17,24 +16,24 @@ body{
     padding: 0 20px;
 }
 
-.logo1 img{
+.logo1 img {
     width: 150px;
 }
 
-.menu1 ul{
+.menu1 ul {
     list-style-type: none;
     display: flex;
     justify-content: center;
     gap: 25px;
 }
 
-.menu1 ul li a{
+.menu1 ul li a {
     text-decoration: none;
     color: #f5f5f5;
     font-size: 25px;
 }
 
-.menu1 .divider{
+.menu1 .divider {
     color: #f5f5f5;
     font-size: 10px;
     display: flex;
@@ -46,18 +45,18 @@ body{
     color: #FE377F;
 }
 
-.menu1 ul li a{
+.menu1 ul li a {
     transition: color 0.5s ease-in-out;
 }
 
-.authbuttons{
+.authbuttons {
     display: flex;
     align-items: center;
     align-self: center;
     gap: 20px;
 }
 
-.authbuttons a{
+.authbuttons a {
     text-decoration: none;
     color: #f5f5f5;
     font-size: 23px;
@@ -65,7 +64,7 @@ body{
 }
 
 
-.authbuttons #login{
+.authbuttons #login {
     background-color: #FE377F;
     border-radius: 10px;
     border: none;
@@ -82,100 +81,106 @@ body{
 .image {
     background-image: url(../assets/images/banner1.png);
     background-size: 100% 100%;
-    border-radius: 0 0 30px 30px; /* canto arredondado apenas em baixo */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra ao redor do banner */
+    border-radius: 0 0 30px 30px;
+    /* canto arredondado apenas em baixo */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    /* Sombra ao redor do banner */
 }
 
 .banner img {
-    width: 100%; 
-    height: auto; /* mudar imagem */
-    border-radius: 0 0 30px 30px; /* canto arredondado apenas em baixo */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra ao redor do banner */
+    width: 100%;
+    height: auto;
+    /* mudar imagem */
+    border-radius: 0 0 30px 30px;
+    /* canto arredondado apenas em baixo */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    /* Sombra ao redor do banner */
 }
 
 /* container do legado */
 
-.container-legado{
+.container-legado {
     display: flex;
     margin: 10px 20px;
 }
 
-.text-legado{
+.text-legado {
     width: 60%;
     padding: 0 20px;
 }
 
-.text-legado h1{
-    color:#FF8DB6;
+.text-legado h1 {
+    color: #FF8DB6;
     font-size: 50px;
     text-align: center;
 }
 
-.text-legado p{
+.text-legado p {
     font-size: 18px;
     text-align: start;
 }
 
-.text-legado hr{
+.text-legado hr {
     background-color: #FF8DB6;
     height: 2px;
     border: none;
     border-radius: 20px;
 }
 
-.imagem-legado{
+.imagem-legado {
     width: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.imagem-legado img{
+.imagem-legado img {
     width: 400px;
     height: 400px;
 }
 
 /* parte do show */
 
-.container-show{
+.container-show {
     background-color: #FF8DB6;
-    height: auto; /* mudar isso? nao sei ainda como melhorar */
+    height: auto;
+    /* mudar isso? nao sei ainda como melhorar */
     border-radius: 25px;
     padding-bottom: 20px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.container2-show{
+.container2-show {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
 
-.titulo-show{
+.titulo-show {
     text-align: center;
     color: #FE377F;
     font-size: 80px;
     margin-bottom: 0;
 }
 
-.text-show{
+.text-show {
     width: 40%;
 }
 
-.text-show p{
+.text-show p {
     font-size: 18px;
     text-align: start;
     color: #f5f5f5;
 }
 
-.text-show hr{
+.text-show hr {
     background-color: #FE377F;
     height: 2px;
     border: none;
     border-radius: 20px;
 }
 
-.grafico-show{
+.grafico-show {
     width: 40%;
     display: flex;
     justify-content: center;
@@ -183,14 +188,14 @@ body{
     border-radius: 25px;
 }
 
-.grafico-show img{
+.grafico-show img {
     width: 500px;
     height: 500px;
 }
 
 /* container da economia */
 
-.container-economia{
+.container-economia {
     display: flex;
     margin: 10px 20px;
     height: 100vh;
@@ -198,38 +203,38 @@ body{
     align-items: center;
 }
 
-.imagem-economia{
+.imagem-economia {
     display: flex;
     justify-content: center;
     width: 40%;
 }
 
-.imagem-economia img{
+.imagem-economia img {
     width: 400px;
     height: 550px;
 }
 
-.text-economia{
+.text-economia {
     width: 60%;
     text-align: center;
 }
 
-.text-economia h1{
+.text-economia h1 {
     color: #FF8DB6;
     font-size: 60px;
     margin-bottom: 0;
 }
 
-.text-economia p{
+.text-economia p {
     font-size: 20px;
 }
 
-.imagem-ods img{
+.imagem-ods img {
     width: 150px;
     height: 150px;
 }
 
-footer{
+footer {
     height: 10vh;
     display: flex;
     justify-content: space-between;
@@ -238,33 +243,33 @@ footer{
     border-top: 1px solid #d7d7d7;
 }
 
-.logo-footer{
+.logo-footer {
     display: flex;
     align-items: center;
 }
 
-.logo-footer img{
+.logo-footer img {
     width: 100px;
     height: 50px;
 }
 
-.text-footer p{
+.text-footer p {
     transition: color 0.5s ease-in-out;
 }
 
-.text-footer p:hover{
+.text-footer p:hover {
     color: #FE377F;
 }
 
 /* login */
 
 .image-login {
-    background-image: url('../assets/images/banner-login.png'); 
-    background-size: cover; 
+    background-image: url('../assets/images/banner-login.png');
+    background-size: cover;
     height: 90vh;
 }
 
-.container-login{
+.container-login {
     width: 100%;
     height: 80vh;
     display: flex;
@@ -272,11 +277,11 @@ footer{
     justify-content: start;
 }
 
-.login-wrapper{
+.login-wrapper {
     width: 60%;
 }
 
-.text-login{
+.text-login {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -288,7 +293,7 @@ footer{
     cursor: pointer;
 }
 
-.text-login #login a{
+.text-login #login-login a {
     color: #FE377F;
     font-weight: bold;
     font-size: 50px;
@@ -296,14 +301,14 @@ footer{
     text-underline-offset: 1.2rem;
 }
 
-.text-login #cadastro a{
+.text-login #cadastro-login a {
     color: #FF8DB6;
     font-weight: bold;
     font-size: 50px;
     cursor: pointer;
 }
 
-.inputs-login{
+.inputs-login {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -311,8 +316,7 @@ footer{
     gap: 20px;
 }
 
-
-.inputs-login input{
+.inputs-login input {
     background-color: #f5f5f5;
     border: none;
     border-radius: 8px;
@@ -322,7 +326,7 @@ footer{
     font-size: 20px;
 }
 
-.entrar-button{
+.entrar-button {
     background-color: #FF8DB6;
     color: #f5f5f5;
     text-decoration: none;
@@ -338,19 +342,19 @@ footer{
     border: none;
 }
 
-.botao-entrar{
+.botao-entrar {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.auth-footer{
+.auth-footer {
     background-color: #FFFFFF;
 }
 
 /* cadastro */
 
-.container-cadastro{
+.container-cadastro {
     width: 100%;
     height: 80vh;
     display: none;
@@ -358,22 +362,22 @@ footer{
     justify-content: start;
 }
 
-.cadastro-wrapper{
+.cadastro-wrapper {
     width: 60%;
 }
 
-.text-cadastro{
+.text-cadastro {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 20px;
 }
 
-.text-cadastro a{
+.text-cadastro a {
     text-decoration: none;
 }
 
-.text-cadastro #cadastro a{
+.text-cadastro #cadastro-cadastro a {
     color: #FE377F;
     font-weight: bold;
     font-size: 50px;
@@ -381,13 +385,13 @@ footer{
     text-underline-offset: 1.2rem;
 }
 
-.text-cadastro #login a{
+.text-cadastro #login-cadastro a {
     color: #FF8DB6;
     font-weight: bold;
     font-size: 50px;
 }
 
-#selectAlbuns{
+#selectAlbuns {
     background-color: #f5f5f5;
     border: none;
     border-radius: 8px;
@@ -397,15 +401,15 @@ footer{
     font-size: 20px;
 }
 
-.inputs-cadastro{
+.inputs-cadastro {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
 }
 
-.inputs-cadastro input{
+.inputs-cadastro input {
     background-color: #f5f5f5;
     border: none;
     border-radius: 8px;
@@ -417,10 +421,10 @@ footer{
 
 input::placeholder {
     color: #FF8DB6;
-    opacity: 1; 
+    opacity: 1;
 }
 
-.cadastro-button{
+.cadastro-button {
     background-color: #FF8DB6;
     color: #f5f5f5;
     text-decoration: none;
@@ -436,8 +440,27 @@ input::placeholder {
     border: none;
 }
 
-.botao-cadastro{
+.botao-cadastro {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#mensagemErroNome {
+    color: #FE377F;
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+}
+
+#mensagemErroEmail {
+    color: #FE377F;
+    font-size: 12px;
+    padding: 0;
+}
+
+#mensagemErroSenha {
+    color: #FE377F;
+    font-size: 12px;
+    padding: 0;
 }
