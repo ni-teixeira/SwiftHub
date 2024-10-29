@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/scroll.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <title>Swift Hub</title>
+    <title>Swift Hub - Home</title>
 </head>
 <body>
+    
     <div class="image">
     <header>
         <nav class="navbar">
@@ -19,15 +20,15 @@
             <div class="menu1">
                 <ul>
                     <li><a href="../html/index.html">Home</a></li>
-                    <li class="divider"> // </li>
-                    <li><a href="#">Sobre</a></li>
-                    <li class="divider"> // </li>
+                    <li class="divider"> ✧ </li>
+                    <li><a href="../html/sobre.html">Sobre</a></li>
+                    <li class="divider"> ✧ </li>
                     <li><a href="#">Albuns</a></li>
                 </ul>
             </div>
+            <!-- | -->
             <div class="authbuttons">
-                <!-- <button id="cadastro">Cadastro</button> -->
-                <button id="login"> <a href="../html/logincadastro.html"> Login </a></button>
+                <a href="../html/logincadastro.html" id="login"> Login </a>
             </div>
         </nav>
     </header>
@@ -39,7 +40,7 @@
     <div class="container-legado">
 
         <div class="text-legado">
-            <h1>Explorando o legado de Taylor Swift</h1>
+            <h1> ★ Explorando o legado <br> de Taylor Swift ⋆⸜</h1>
 
             <p>Taylor Swift é uma das artistas mais influentes da música contemporânea, conhecida por sua capacidade de se reinventar artisticamente e se conectar profundamente com seus fãs. Sua carreira começou no country, com músicas que capturavam histórias pessoais e emoções autênticas, mas ela rapidamente expandiu seu alcance para o pop e outros gêneros. Cada álbum de Swift marca uma nova fase de sua vida e carreira e suas letras são elogiadas por sua narrativa envolvente. </p>
             <hr>
@@ -54,7 +55,7 @@
 
     <div class="container-show">
         
-        <h1 class="titulo-show">The Eras Tour</h1>
+        <h1 class="titulo-show"> ✦ The Eras Tour ⋆⸜ </h1>
 
         <div class="container2-show">
 
@@ -81,14 +82,14 @@
         </div>
 
         <div class="text-economia">
-            <h1> O impacto na economia </h1>
-            <p> Sua turnê "The Eras Tour" gerou bilhões de dólares em receita para cidades, hotéis, transporte e turismo, impulsionando economias locais por meio do aumento da demanda por serviços e produtos. Esse impacto econômico está alinhado com a ODS 8 da Agenda 2030 da ONU, que busca promover o crescimento econômico sustentável e o emprego pleno e produtivo. </p>
+
+            <h1> ✦ O impacto da tour <br>na economia mundial ⋆⸜ </h1>
+            
+            <p> A turnê de Taylor Swift gerou bilhões de dólares em receita para cidades, hotéis, transporte e turismo, impulsionando economias locais por meio do aumento da demanda por serviços e produtos. O evento atraiu grandes multidões, o que resultou em um aumento significativo nas vendas de ingressos e gastos em restaurantes, hotéis e lojas locais. </p>
+            <hr>
             <p>
-             Ao movimentar diversos setores com sua arte, Taylor contribui para a criação de empregos, turismo e o desenvolvimento econômico sustentável nas regiões por onde passa.
+                 O fluxo de turistas, que viajaram de diferentes cidades e países para assistir aos shows, beneficiou o setor de turismo, elevando a procura por passeios e experiências locais. A cobertura da mídia e a promoção nas redes sociais ampliaram a visibilidade das cidades anfitriãs, atraindo turistas a longo prazo. Assim, a "The Eras Tour" se estabeleceu como uma força significativa, impactando diversas indústrias e comunidades de forma marcante.
             </p>
-            <div class="imagem-ods">
-                <img src="../assets/images/ods.png" alt="ods 8 crescimento economico">
-            </div>
         </div>
 
     </div>
@@ -125,25 +126,26 @@
             '#E3C3FF'
             ],
           borderWidth: 1,
-          hoverOffset: 4 // aumenta qnd passa o mouse
+          hoverOffset: 5 // aumenta qnd passa o mouse
         }]
       },
       options: {
         plugins: {
             title: {
-            display: true,
-            text: 'Paises que mais consomem Taylor Swift', 
-            font: {
-              size: 20, 
-              weight: 'bold', 
+                display: true,
+                text: 'Paises que mais escutam Taylor Swift',
+                font: {
+                    size: 20,
+                    weight: 'bold',
+                },
+                align: 'center',
+                padding: 10 
             },
-            align: 'center', 
-          },
           legend: {
             display: true,
             labels: {
               padding: 10,
-              boxWidth: 20,
+              boxWidth: 15,
               font: {
                 size: 15,
               }

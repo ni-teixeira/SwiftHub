@@ -1,14 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 body {
     margin: 0;
-    font-family: "Poppins", sans-serif;
+    font-family: "Montserrat", sans-serif;
+    cursor: url(../assets/cursor/normsl\ u\ \(1\).cur), auto;
 }
+
+@font-face {
+    font-family: 'The Seasons'; /* Nome da fonte */
+    src: url('../assets/fonts/Fontspring-DEMO-theseasons-bd.otf') format('opentype'); /* Caminho para o arquivo OTF */
+    font-weight: bold;
+    font-style: normal;
+}
+
 
 /* navbar 1 */
 
 .navbar {
     background-color: transparent;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.navbar2 {
+    background-color: #FF8DB6;
     height: 10vh;
     display: flex;
     justify-content: space-between;
@@ -35,7 +53,7 @@ body {
 
 .menu1 .divider {
     color: #f5f5f5;
-    font-size: 10px;
+    font-size: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -47,29 +65,35 @@ body {
 
 .menu1 ul li a {
     transition: color 0.5s ease-in-out;
+    cursor: url(../assets/cursor/link\ 1000\ \(1\).cur), auto;
 }
 
 .authbuttons {
     display: flex;
     align-items: center;
     align-self: center;
-    gap: 20px;
+    text-align: center;
 }
 
 .authbuttons a {
     text-decoration: none;
-    color: #f5f5f5;
+    color: #FF8DB6;
     font-size: 23px;
-    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    cursor: url(../assets/cursor/link\ 1000\ \(1\).cur), auto;
 }
 
-
 .authbuttons #login {
-    background-color: #FE377F;
+    background-color: #f5f5f5;
     border-radius: 10px;
     border: none;
     height: 30px;
     width: 130px;
+}
+
+.authbuttons a:hover{
+    transform: scale(1.05);
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
 .banner {
@@ -102,21 +126,26 @@ body {
 .container-legado {
     display: flex;
     margin: 10px 20px;
+    height: 100vh;
+    align-items: center;
 }
 
 .text-legado {
     width: 60%;
-    padding: 0 20px;
+    padding: 0 10px;
+    margin: 0;
 }
 
 .text-legado h1 {
     color: #FF8DB6;
     font-size: 50px;
     text-align: center;
+    font-family: "The Seasons";
+    font-weight: bolder;
 }
 
 .text-legado p {
-    font-size: 18px;
+    font-size: 20px;
     text-align: start;
 }
 
@@ -125,6 +154,7 @@ body {
     height: 2px;
     border: none;
     border-radius: 20px;
+    width: 90%;
 }
 
 .imagem-legado {
@@ -137,14 +167,19 @@ body {
 .imagem-legado img {
     width: 400px;
     height: 400px;
+    transition: scale 0.5s, rotate 0.5s;
+}
+
+.imagem-legado:hover img{
+    scale: 1.05;
+    rotate: 2deg;
 }
 
 /* parte do show */
 
 .container-show {
     background-color: #FF8DB6;
-    height: auto;
-    /* mudar isso? nao sei ainda como melhorar */
+    height: 100vh;
     border-radius: 25px;
     padding-bottom: 20px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -161,6 +196,7 @@ body {
     color: #FE377F;
     font-size: 80px;
     margin-bottom: 0;
+    font-family: "The Seasons";
 }
 
 .text-show {
@@ -168,7 +204,7 @@ body {
 }
 
 .text-show p {
-    font-size: 18px;
+    font-size: 20px;
     text-align: start;
     color: #f5f5f5;
 }
@@ -185,12 +221,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 25px;
-}
-
-.grafico-show img {
-    width: 500px;
-    height: 500px;
+    margin: 0;
+    height: 80vh;
 }
 
 /* container da economia */
@@ -212,27 +244,41 @@ body {
 .imagem-economia img {
     width: 400px;
     height: 550px;
+    transition: scale 0.5s, rotate 0.5s;
+    border-radius: 25px;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.imagem-economia:hover img{
+    scale: 1.05;
+    rotate: 2deg;
 }
 
 .text-economia {
     width: 60%;
     text-align: center;
+    align-items: center;
 }
 
 .text-economia h1 {
     color: #FF8DB6;
-    font-size: 60px;
-    margin-bottom: 0;
+    font-size: 50px;
+    font-family: "The Seasons";
 }
 
 .text-economia p {
     font-size: 20px;
 }
 
-.imagem-ods img {
-    width: 150px;
-    height: 150px;
+.text-economia hr {
+    background-color: #FF8DB6;
+    height: 2px;
+    border: none;
+    border-radius: 20px;
+    width: 90%;
 }
+
+/* footer */
 
 footer {
     height: 10vh;
@@ -290,7 +336,7 @@ footer {
 
 .text-login a {
     text-decoration: none;
-    cursor: pointer;
+    cursor: url(../assets/cursor/link\ 1000\ \(1\).cur), auto;
 }
 
 .text-login #login-login a {
@@ -305,7 +351,7 @@ footer {
     color: #FF8DB6;
     font-weight: bold;
     font-size: 50px;
-    cursor: pointer;
+    cursor: url(../assets/cursor/link\ 1000\ \(1\).cur), auto;
 }
 
 .inputs-login {
@@ -340,6 +386,7 @@ footer {
     align-items: center;
     justify-content: center;
     border: none;
+    cursor: url(../assets/cursor/link\ 1000\ \(1\).cur), auto;
 }
 
 .botao-entrar {
@@ -383,12 +430,14 @@ footer {
     font-size: 50px;
     text-decoration: underline 2px;
     text-underline-offset: 1.2rem;
+    cursor: url(../assets/cursor/link\ 1000\ \(1\).cur), auto;
 }
 
 .text-cadastro #login-cadastro a {
     color: #FF8DB6;
     font-weight: bold;
     font-size: 50px;
+    cursor: url(../assets/cursor/link\ 1000\ \(1\).cur), auto;
 }
 
 #selectAlbuns {
@@ -438,6 +487,7 @@ input::placeholder {
     align-items: center;
     justify-content: center;
     border: none;
+    cursor: url(../assets/cursor/link\ 1000\ \(1\).cur), auto;
 }
 
 .botao-cadastro {
