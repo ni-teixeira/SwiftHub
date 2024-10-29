@@ -7,14 +7,28 @@ body {
 }
 
 @font-face {
-    font-family: 'The Seasons';
-    /* Nome da fonte */
-    src: url('../assets/fonts/Fontspring-DEMO-theseasons-bd.otf') format('opentype');
-    /* Caminho para o arquivo OTF */
-    font-weight: bold;
+    font-family: 'Holen vintage'; 
+    src: url('../assets/fonts/Holen\ Vintage.otf') format('opentype'); 
+    font-weight: normal;
     font-style: normal;
 }
 
+/* fade in  */
+@keyframes fade {
+    from{
+        opacity: 0;
+        scale: 0.9;
+    } to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+.conexao, .sobremim{
+    animation: fade ease both; 
+    animation-timeline: view();  
+    animation-range: entry 0% cover 40%;
+}
 
 /* navbar 1 */
 
@@ -142,7 +156,7 @@ footer {
     color: #FE377F;
     text-align: center;
     font-size: 60px;
-    font-family: "The Seasons";
+    font-family: "Holen vintage";
     margin-top: 2px;
 }
 
@@ -182,9 +196,10 @@ footer {
     font-size: 20px;
     text-align: center;
     margin: 2px 10px 5px 10px;
+    color: #201b1b;
 }
 
-.texto span{
+.texto span {
     color: #FE377F;
     font-weight: bold;
 }
@@ -204,8 +219,99 @@ footer {
     align-items: center;
     margin-top: 5px;
     justify-content: flex-start;
+    cursor: url(../assets/cursor/link\ 1000\ \(1\).cur), auto;
 }
 
-.links i{
+.links i {
     padding-right: 10px;
+}
+
+/* conexao */
+
+.conexao {
+    height: 80vh;
+    background-color: #FFDAE7;
+    border-radius: 25px;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.conexao h1 {
+    color: #FE377F;
+    text-align: center;
+    font-size: 60px;
+    font-family: "Holen vintage";
+    padding-top: 5px;
+}
+
+.conexao-wrapper {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    justify-content: center;
+}
+
+.text-conexao {
+    width: 50%;
+    display: flex;
+    background-color: #f5f5f5;
+    border-radius: 25px;
+    height: auto;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+}
+
+.text-conexao p {
+    color: #201b1b;
+    margin: 10px;
+    text-align: justify;
+}
+
+.cards {
+    width: 40%;
+    height: 55vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 190px;
+    height: 250px;
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 1rem;
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+}
+
+.flip-card img {
+    border-radius: 15px;
+    object-fit: cover;
 }

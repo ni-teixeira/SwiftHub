@@ -7,12 +7,28 @@ body {
 }
 
 @font-face {
-    font-family: 'The Seasons'; /* Nome da fonte */
-    src: url('../assets/fonts/Fontspring-DEMO-theseasons-bd.otf') format('opentype'); /* Caminho para o arquivo OTF */
-    font-weight: bold;
+    font-family: 'Holen vintage'; 
+    src: url('../assets/fonts/Holen\ Vintage.otf') format('opentype'); 
+    font-weight: normal;
     font-style: normal;
 }
 
+/* fade in  */
+@keyframes fade {
+    from{
+        opacity: 0;
+        scale: 0.9;
+    } to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+.container-legado, .container-show, .container-economia{
+    animation: fade ease both; 
+    animation-timeline: view();  
+    animation-range: entry 0% cover 40%;
+}
 
 /* navbar 1 */
 
@@ -114,11 +130,8 @@ body {
 .banner img {
     width: 100%;
     height: auto;
-    /* mudar imagem */
     border-radius: 0 0 30px 30px;
-    /* canto arredondado apenas em baixo */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    /* Sombra ao redor do banner */
 }
 
 /* container do legado */
@@ -140,13 +153,14 @@ body {
     color: #FF8DB6;
     font-size: 50px;
     text-align: center;
-    font-family: "The Seasons";
+    font-family: "Holen vintage";
     font-weight: bolder;
 }
 
 .text-legado p {
     font-size: 20px;
     text-align: start;
+    color: #201b1b;
 }
 
 .text-legado hr {
@@ -178,7 +192,7 @@ body {
 /* parte do show */
 
 .container-show {
-    background-color: #FF8DB6;
+    background-color: #FFDAE7;
     height: 100vh;
     border-radius: 25px;
     padding-bottom: 20px;
@@ -196,7 +210,7 @@ body {
     color: #FE377F;
     font-size: 80px;
     margin-bottom: 0;
-    font-family: "The Seasons";
+    font-family: "Holen vintage";
 }
 
 .text-show {
@@ -206,7 +220,7 @@ body {
 .text-show p {
     font-size: 20px;
     text-align: start;
-    color: #f5f5f5;
+    color: #201b1b;
 }
 
 .text-show hr {
@@ -263,11 +277,12 @@ body {
 .text-economia h1 {
     color: #FF8DB6;
     font-size: 50px;
-    font-family: "The Seasons";
+    font-family: "Holen vintage";
 }
 
 .text-economia p {
     font-size: 20px;
+    color: #201b1b;
 }
 
 .text-economia hr {
@@ -301,6 +316,7 @@ footer {
 
 .text-footer p {
     transition: color 0.5s ease-in-out;
+    color: #201b1b;
 }
 
 .text-footer p:hover {
