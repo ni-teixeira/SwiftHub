@@ -462,7 +462,7 @@ footer {
     border-radius: 8px;
     width: 50%;
     height: 6vh;
-    color: #FF8DB6;
+    color: #ababab;
     font-size: 20px;
 }
 
@@ -485,7 +485,7 @@ footer {
 }
 
 input::placeholder {
-    color: #FF8DB6;
+    color: #ababab;
     opacity: 1;
 }
 
