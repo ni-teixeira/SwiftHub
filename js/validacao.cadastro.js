@@ -73,4 +73,3 @@ function validarNome(){
         mensagemErroNome.innerHTML = `O nome precisa ter ao menos 3 caracteres`;
     }
 }
-
