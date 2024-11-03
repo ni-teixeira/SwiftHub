@@ -134,6 +134,8 @@
     margin: 0 auto;
     position: relative;
     overflow: hidden;
+    border-radius: 25px;
+
 }
 
 .lista-imagens {
