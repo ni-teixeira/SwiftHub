@@ -4,6 +4,10 @@ var mensagemErroSenha = document.getElementById("mensagemErroSenha");
 var mensagemErroNome = document.getElementById("mensagemErroNome");
 var mensagemErroEmail = document.getElementById("mensagemErroEmail");
 
+//colocar mensagem de erro se vazio
+//validar tamanho das infos
+//tirar regex
+
 function validarSenha() {
   var senha = document.getElementById("inputSenha").value;
   mensagemErroSenha.innerHTML = ``;

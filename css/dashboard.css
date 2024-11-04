@@ -1,0 +1,40 @@
+.dash-wrapper{
+    height: 80vh;
+}
+
+.dash-wrapper h1{
+    color: #FF8DB6;
+    font-size: 50px;
+    text-align: center;
+    font-family: "Holen vintage";
+    font-weight: bolder;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.container-dash{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 70vh;
+}
+
+.dash{
+    background-color: #FF8DB6;
+    width: 70%;
+    height: 60vh;
+    margin: 10px;
+    border-radius: 25px;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.ilustracao{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.ilustracao img{
+    height: 60vh;
+}
