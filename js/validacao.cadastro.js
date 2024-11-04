@@ -68,7 +68,8 @@ function validarNome() {
 
   var tamanhoEmail = email.length;
 
-  if (tamanhoEmail <= 3) {
+  // precisa colocar o max
+  if (tamanhoEmail <= 3 ) {
     mensagemErroNome.innerHTML = `O nome precisa ter ao menos 3 caracteres`;
   }
 }
