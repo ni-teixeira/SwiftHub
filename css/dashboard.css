@@ -1,28 +1,27 @@
-.dash-wrapper {
-    height: 80vh;
+body{
+    background-image: url('../assets/images/gif-background.gif');
+    background-size: cover;
 }
 
 .dash-wrapper h1 {
     color: #FF8DB6;
-    font-size: 50px;
+    font-size: 45px;
     text-align: center;
     font-family: "Holen vintage";
     font-weight: bolder;
-    margin-top: 5px;
-    margin-bottom: 0;
+    margin: 5px;
 }
 
 .container-dash {
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
     height: 70vh;
 }
 
 .dash {
     background-color: #FF8DB6;
     width: 70%;
-    height: 60vh;
+    height: 65vh;
     margin: 10px;
     border-radius: 25px;
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
