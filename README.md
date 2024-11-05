@@ -10,8 +10,16 @@
 
 ## ⁺˖ Tecnologias utilizadas: ⸝⸝
 
-## ⁺˖ Screenshots: ⸝⸝
+<div align="left">
 
-## ⁺˖ Licença: ⸝⸝
+![HTML](https://img.shields.io/badge/html-pink?style=for-the-badge&logo=html5&logoColor=black)
+![CSS](https://img.shields.io/badge/css-pink?style=for-the-badge&logo=css3&logoColor=black)
+![JavaScript](https://img.shields.io/badge/javascript-pink?style=for-the-badge&logo=javascript&logoColor=black)
+![NodeJS](https://img.shields.io/badge/node.js-pink?style=for-the-badge&logo=node.js&logoColor=black)
+![MySQL](https://img.shields.io/badge/MySQL-pink?style=for-the-badge&logo=mysql&logoColor=black)
+
+</div>
+
+## ⁺˖ Screenshots: ⸝⸝
 
 ## ⁺˖ Instalação local: ⸝⸝

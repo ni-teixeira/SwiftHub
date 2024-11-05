@@ -113,7 +113,7 @@
 .conexao {
     display: flex;
     flex-direction: column;
-    background-image: url("../assets/images/background-sobre2\ \(2\).png");
+    background-image: url('../assets/images/gif-background.gif');
     background-size: cover;
 }
 
