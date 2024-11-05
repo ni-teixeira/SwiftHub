@@ -1,8 +1,8 @@
-.dash-wrapper{
+.dash-wrapper {
     height: 80vh;
 }
 
-.dash-wrapper h1{
+.dash-wrapper h1 {
     color: #FF8DB6;
     font-size: 50px;
     text-align: center;
@@ -12,14 +12,14 @@
     margin-bottom: 0;
 }
 
-.container-dash{
+.container-dash {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     height: 70vh;
 }
 
-.dash{
+.dash {
     background-color: #FF8DB6;
     width: 70%;
     height: 60vh;
@@ -28,13 +28,13 @@
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
-.ilustracao{
+.ilustracao {
     width: 30%;
     display: flex;
     justify-content: center;
     align-items: end;
 }
 
-.ilustracao img{
+.ilustracao img {
     height: 60vh;
 }

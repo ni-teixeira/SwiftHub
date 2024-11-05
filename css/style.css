@@ -7,26 +7,28 @@ body {
 }
 
 @font-face {
-    font-family: 'Holen vintage'; 
-    src: url('../assets/fonts/Holen\ Vintage.otf') format('opentype'); 
+    font-family: 'Holen vintage';
+    src: url('../assets/fonts/Holen\ Vintage.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
 
 /* fade in  */
 @keyframes fade {
-    from{
+    from {
         opacity: 0;
         scale: 0.9;
-    } to {
+    }
+
+    to {
         opacity: 1;
         scale: 1;
     }
 }
 
-.container-legado, .container-show, .container-economia{
-    animation: fade ease both; 
-    animation-timeline: view();  
+.container-legado, .container-show, .container-economia {
+    animation: fade ease both;
+    animation-timeline: view();
     animation-range: entry 0% cover 40%;
 }
 
@@ -107,7 +109,7 @@ body {
     width: 130px;
 }
 
-.authbuttons a:hover{
+.authbuttons a:hover {
     transform: scale(1.05);
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
 }
@@ -184,7 +186,7 @@ body {
     transition: scale 0.5s, rotate 0.5s;
 }
 
-.imagem-legado:hover img{
+.imagem-legado:hover img {
     scale: 1.05;
     rotate: 2deg;
 }
@@ -261,7 +263,7 @@ body {
     transition: scale 0.5s, rotate 0.5s;
 }
 
-.imagem-economia:hover img{
+.imagem-economia:hover img {
     scale: 1.05;
     rotate: 2deg;
 }
