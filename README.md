@@ -1,6 +1,6 @@
 # ‧˚꒰ Swift Hub ꒱༘⋆
 
-<img src="../SwiftHub/assets/images/swifthub-branco.png">
+<img src="https://i.imghippo.com/files/PGmj7274SYA.png">
 
 ## ⁺˖ Sobre o projeto ⸝⸝
 
