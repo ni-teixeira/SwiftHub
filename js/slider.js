@@ -4,12 +4,12 @@ const botaoProximo = document.querySelector(".botao-proximo");
 const botaoAnterior = document.querySelector(".botao-anterior");
 const pontos = document.querySelectorAll(".ponto");
 
-let imagemAtual = 0;
+var imagemAtual = 0;
 
 function mostrarImagem(numero) {
   listaImagens.style.left = -numero * 800 + "px"; // multiplica por 800 porque cada imagem tem 800px de largura
 
-  for (let i = 0; i < pontos.length; i++) {
+  for (var i = 0; i < pontos.length; i++) {
     pontos[i].classList.remove("ativo");
   }
 
@@ -17,9 +17,11 @@ function mostrarImagem(numero) {
 }
 
 function proximaImagem() {
+
   if (imagemAtual < 4) {
     imagemAtual = imagemAtual + 1;
-  } else {
+  }
+  else {
     imagemAtual = 0;
   }
 
@@ -27,9 +29,11 @@ function proximaImagem() {
 }
 
 function imagemAnterior() {
+
   if (imagemAtual > 0) {
     imagemAtual = imagemAtual - 1;
-  } else {
+  }
+  else {
     imagemAtual = 4;
   }
   mostrarImagem(imagemAtual);

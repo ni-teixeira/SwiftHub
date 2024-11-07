@@ -84,8 +84,10 @@
                             <input id="inputSenha" oninput="validarSenha()" type="password"
                                 placeholder="Digite sua senha:">
                             <div id="mensagemErroSenha"></div>
-                            <!-- colocar a confirmacao de senha
-                            colocar a data de nascimento -->
+
+                            <input type="text" id="inputData" maxlength="10" placeholder="DD/MM/YYYY" onkeypress="mascaraData(event)" oninput="validarData()">
+                            <div id="mensagemErroData"></div>
+
                             <select id="selectAlbuns">
                                 <option value="" disabled selected>Selecione seu album favorito:</option>
                                 <option value="taylorswift">Taylor Swift</option>
@@ -103,7 +105,7 @@
                         </div>
 
                         <div class="botao-cadastro">
-                            <button class="cadastro-button" type="submit">Cadastre-se</button>
+                            <button class="cadastro-button" type="submit" onclick="validar()">Cadastre-se</button>
                         </div>
 
                     </form>

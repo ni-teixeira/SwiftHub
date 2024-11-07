@@ -4,47 +4,70 @@ var mensagemErroSenha = document.getElementById("mensagemErroSenha");
 var mensagemErroNome = document.getElementById("mensagemErroNome");
 var mensagemErroEmail = document.getElementById("mensagemErroEmail");
 
-//colocar mensagem de erro se vazio
-//validar tamanho das infos
-//tirar regex
+function validar() {
+  var nome = document.getElementById("inputNome").value;
+  var email = document.getElementById("inputEmail").value;
+  var senha = document.getElementById("inputSenha").value;
+  var albuns = document.getElementById("selectAlbuns").value;
+
+  // valida se estao vazios
+  if (nome == "" || email == "" || senha == "" || albuns == "") {
+    alert("Preencha todos os campos!");
+    return;
+  }
+}
 
 function validarSenha() {
   var senha = document.getElementById("inputSenha").value;
   mensagemErroSenha.innerHTML = ``;
 
   var tamanhoSenha = senha.length;
-  var hasCaractereEspecial = false;
+  var temCaractereEspecial = false;
   var mensagensErro = [];
 
   //validando tamanho da senha
   if (tamanhoSenha < 8) {
-    mensagensErro.push(`A senha precisa ter 8 caracteres.`);
+    mensagensErro.push(`A senha precisa ter oito caracteres.`);
+  }
+  if (tamanhoSenha > 30) {
+    mensagensErro.push(`A senha precisa ter no máximo trinta caracteres.`);
   }
 
   //validando caractere especial
   for (var i = 0; i < tamanhoSenha; i++) {
     if (caracteresEspeciais.includes(senha[i])) {
-      hasCaractereEspecial = true;
+      temCaractereEspecial = true;
     }
   }
 
-  if (!hasCaractereEspecial) {
-    mensagensErro.push(`A senha precisa conter ao menos 1 caractere especial.`);
+  if (!temCaractereEspecial) {
+    mensagensErro.push(
+      `A senha precisa conter ao menos um caractere especial.`
+    );
   }
 
-  //validando se ha minusculas na senha por meio do .search(regex a-z lowercase)
-  if (senha.search(/[a-z]/) < 0) {
-    mensagensErro.push(`A senha precisa conter ao menos 1 letra minúscula.`);
+  // criando array com letras e spread operator
+  const minusculas = [..."abcdefghijklmnopqrstuvwxyz"];
+  const maiusculas = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
+  // verifica com o some se passa em pelo menos uma das letras dentro do array
+  // o "letra" eh o nome do elemento do array
+  var temMinuscula = minusculas.some((letra) => senha.includes(letra));
+  var temMaiuscula = maiusculas.some((letra) => senha.includes(letra));
+  if (!temMinuscula) {
+    mensagensErro.push("A senha precisa conter ao menos uma letra minúscula.");
   }
-  //validando se ha maiusculas na senha por meio do .search(regex A-Z uppercase)
-  if (senha.search(/[A-Z]/) < 0) {
-    mensagensErro.push(`A senha precisa conter ao menos 1 letra maiúscula.`);
+  if (!temMaiuscula) {
+    mensagensErro.push("A senha precisa conter ao menos uma letra maiúscula.");
   }
 
-  //monta innerHTML de erro
-  if (mensagensErro.length > 0) {
-    mensagemErroSenha.innerHTML = mensagensErro.join("<br>");
+  const numeros = [..."01234567889"];
+  var temNumero = numeros.some((numero) => senha.includes(numero));
+  if (!temNumero) {
+    mensagensErro.push("A senha preciso conter ao menos um número.");
   }
+
+  document.getElementById("mensagemErroSenha").innerHTML =
+    mensagensErro.join("<br>");
 }
 
 function validarEmail() {
@@ -54,26 +77,44 @@ function validarEmail() {
   // valida se tem .com ou .br
   var finalEmailCom = email.endsWith(".com");
   var finalEmailBr = email.endsWith(".br");
+
   if (!finalEmailCom && !finalEmailBr) {
-    // o ! significa negacao ou seja se for false
     mensagemErroEmail.innerHTML += `O e-mail não é válido. Deve terminar com '.com' ou '.br'. <br>`;
   }
 
   // valida se tem arroba
   var arroba = email.includes("@");
+
   if (!arroba) {
-    mensagemErroEmail.innerHTML += `O e-mail não é válido. Deve conter '@'.<br>`;
+    mensagemErroEmail.innerHTML += `O e-mail não é válido. Deve conter '@'. <br>`;
   }
 }
 
 function validarNome() {
-  var email = document.getElementById("inputNome").value;
+  var nome = document.getElementById("inputNome").value;
   mensagemErroNome.innerHTML = ``;
 
-  var tamanhoEmail = email.length;
+  var tamanhoNome = nome.length;
 
-  // precisa colocar o max
-  if (tamanhoEmail <= 3) {
-    mensagemErroNome.innerHTML = `O nome precisa ter ao menos 3 caracteres`;
+  // valida tamanho do nome
+  if (tamanhoNome <= 3) {
+    mensagemErroNome.innerHTML = `O nome precisa ter ao menos três caracteres.`;
+    return;
+  } else if (tamanhoNome > 45) {
+    mensagemErroNome.innerHTML = `O nome passa do limite de caracteres.`;
+    return;
+  }
+}
+
+function mascaraData(event) {
+  var input = document.getElementById("inputData");
+  var data = input.value;
+  var dataLength = data.length;
+
+  if (event.key != "Backspace") {
+      if (dataLength == 2 || dataLength == 5) {
+          data += "/";
+      }
+      input.value = data; 
   }
 }
