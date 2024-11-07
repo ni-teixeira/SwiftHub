@@ -111,9 +111,10 @@ function mascaraData(event) {
   var data = input.value;
   var dataLength = data.length;
 
+  // ano 4 - mes - dia 7
   if (event.key != "Backspace") {
-      if (dataLength == 2 || dataLength == 5) {
-          data += "/";
+      if (dataLength == 4 || dataLength == 7) {
+          data += "-";
       }
       input.value = data; 
   }
