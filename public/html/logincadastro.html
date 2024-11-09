@@ -7,8 +7,7 @@
     <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/scroll.css">
-    <script src="../js/login.js"></script>
-
+    <script src="../js/sessao.js"></script>
     <title>Swift Hub - Autenticação </title>
 
 </head>
@@ -47,13 +46,13 @@
                 <div class="formulario">
                     <form>
                         <div class="inputs-login">
-                            <input type="text" id="user" name="user" placeholder="Digite seu e-mail:" required>
+                            <input type="text" id="email" name="user" placeholder="Digite seu e-mail:" required>
                             <input type="password" id="password" name="password" placeholder="Digite sua senha:"
                                 required>
                         </div>
 
                         <div class="botao-entrar">
-                            <button class="entrar-button" type="submit">Entrar</button>
+                            <button class="entrar-button" onclick="entrar()" type="submit">Entrar</button>
                         </div>
 
                         <div id="mensagemErroLogin"></div>
@@ -89,22 +88,22 @@
 
                             <select id="selectAlbuns">
                                 <option value="" disabled selected>Selecione seu album favorito:</option>
-                                <option value="taylorswift">Taylor Swift</option>
-                                <option value="fearless">Fearless</option>
-                                <option value="speaknow">Speak Now</option>
-                                <option value="red">Red</option>
-                                <option value="1989">1989</option>
-                                <option value="reputation">Reputation</option>
-                                <option value="lover">Lover</option>
-                                <option value="folklore">Folklore</option>
-                                <option value="evermore">Evermore</option>
-                                <option value="midnights">Midnights</option>
-                                <option value="ttpd">The Tortured Poets Departament</option>
+                                <option value="1">Taylor Swift</option>
+                                <option value="2">Fearless</option>
+                                <option value="3">Speak Now</option>
+                                <option value="4">Red</option>
+                                <option value="5">1989</option>
+                                <option value="6">Reputation</option>
+                                <option value="7">Lover</option>
+                                <option value="8">Folklore</option>
+                                <option value="9">Evermore</option>
+                                <option value="10">Midnights</option>
+                                <option value="11">The Tortured Poets Departament</option>
                             </select>
                         </div>
 
                         <div class="botao-cadastro">
-                            <button class="cadastro-button" type="submit" onclick="validar()">Cadastre-se</button>
+                            <button class="cadastro-button" type="submit" onclick="cadastrar()">Cadastre-se</button>
                         </div>
 
                     </form>
@@ -124,8 +123,155 @@
         </footer>
 
 </body>
+<script>
 
+    
+
+function entrar() {
+    aguardar();
+
+    var emailVar = email.value;
+    var senhaVar = password.value;
+
+    if (emailVar == "" || senhaVar == "") {
+        cardErro.style.display = "block"
+        mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+        finalizarAguardar();
+        return false;
+    }
+    else {
+        setInterval(sumirMensagem, 5000)
+    }
+
+    console.log("FORM LOGIN: ", emailVar);
+    console.log("FORM SENHA: ", senhaVar);
+
+    fetch("/usuarios/autenticar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            emailServer: emailVar,
+            senhaServer: senhaVar
+        })
+    }).then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!")
+
+        if (resposta.ok) {
+            console.log(resposta);
+
+            resposta.json().then(json => {
+                console.log(json);
+                console.log(JSON.stringify(json));
+                sessionStorage.EMAIL_USUARIO = json.email;
+                sessionStorage.NOME_USUARIO = json.nome;
+                sessionStorage.ID_USUARIO = json.id;
+                sessionStorage.ALBUMS = JSON.stringify(json.ALBUMS)
+
+                setTimeout(function () {
+                    window.location = "./dashboard.html";
+                }, 1000); // apenas para exibir o loading
+
+            });
+
+        } else {
+
+            console.log("Houve um erro ao tentar realizar o login!");
+
+            resposta.text().then(texto => {
+                console.error(texto);
+                finalizarAguardar(texto);
+            });
+        }
+
+    }).catch(function (erro) {
+        console.log(erro);
+    })
+
+    return false;
+}
+
+function sumirMensagem() {
+    cardErro.style.display = "none"
+}
+
+
+
+function cadastrar() {
+    // aguardar();
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeVar = inputNome.value;
+    var emailVar = inputEmail.value;
+    var senhaVar = inputSenha.value;
+    var dtNascVar = inputData.value;
+    var albumFavVar = selectAlbuns.value;
+
+    // Verificando se há algum campo em branco
+    if (
+      nomeVar == "" ||
+      cpfVar == "" ||
+      emailVar == "" ||
+      senhaVar == "" ||
+      dtNascVar == "" ||
+      albumFavVar == "" 
+    ) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Mensagem de erro para todos os campos em branco)";
+
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar,
+        dtNascServer: dtNascVar,
+        albumFavServer: albumFavServer
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+
+          mensagem_erro.innerHTML =
+            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            window.location = "logincadastro.html";
+            hidecadastro();
+          }, "2000");
+
+          limparFormulario();
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+
+    return false;
+  }
+</script>
 <script src="../js/script.cadastro.js"></script>
 <script src="../js/validacao.cadastro.js"></script>
-
 </html>

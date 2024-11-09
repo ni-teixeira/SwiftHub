@@ -4,19 +4,6 @@ var mensagemErroSenha = document.getElementById("mensagemErroSenha");
 var mensagemErroNome = document.getElementById("mensagemErroNome");
 var mensagemErroEmail = document.getElementById("mensagemErroEmail");
 
-function validar() {
-  var nome = document.getElementById("inputNome").value;
-  var email = document.getElementById("inputEmail").value;
-  var senha = document.getElementById("inputSenha").value;
-  var albuns = document.getElementById("selectAlbuns").value;
-
-  // valida se estao vazios
-  if (nome == "" || email == "" || senha == "" || albuns == "") {
-    alert("Preencha todos os campos!");
-    return;
-  }
-}
-
 function validarSenha() {
   var senha = document.getElementById("inputSenha").value;
   mensagemErroSenha.innerHTML = ``;
