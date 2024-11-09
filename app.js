@@ -29,17 +29,16 @@ app.use(cors());
 app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/medidas", medidasRouter);
-app.use("/albums", aquariosRouter);
+app.use("/albums", albumsRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`
-    ##   ##  ######   #####             ####       ##     ######     ##              ##  ##    ####    ######  
-    ##   ##  ##       ##  ##            ## ##     ####      ##      ####             ##  ##     ##         ##  
-    ##   ##  ##       ##  ##            ##  ##   ##  ##     ##     ##  ##            ##  ##     ##        ##   
-    ## # ##  ####     #####    ######   ##  ##   ######     ##     ######   ######   ##  ##     ##       ##    
-    #######  ##       ##  ##            ##  ##   ##  ##     ##     ##  ##            ##  ##     ##      ##     
-    ### ###  ##       ##  ##            ## ##    ##  ##     ##     ##  ##             ####      ##     ##      
-    ##   ##  ######   #####             ####     ##  ##     ##     ##  ##              ##      ####    ######  
+   _____         _  __ _   _    _       _     
+  / ____|       (_)/ _| | | |  | |     | |    
+ | (_____      ___| |_| |_| |__| |_   _| |__  
+  \___ \ \ /\ / / |  _| __|  __  | | | | '_ \ 
+  ____) \ V  V /| | | | |_| |  | | |_| | |_) |
+ |_____/ \_/\_/ |_|_|  \__|_|  |_|\__,_|_.__/                                             
     \n\n\n                                                                                                 
     Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar .: http://${HOST_APP}:${PORTA_APP} :. \n\n
     Você está rodando sua aplicação em ambiente de .:${process.env.AMBIENTE_PROCESSO}:. \n\n

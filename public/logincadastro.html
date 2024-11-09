@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/sessao.js"></script>
     <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/scroll.css">
-    <script src="../js/sessao.js"></script>
     <title>Swift Hub - Autenticação </title>
 
 </head>
@@ -52,10 +52,15 @@
                         </div>
 
                         <div class="botao-entrar">
-                            <button class="entrar-button" onclick="entrar()" type="submit">Entrar</button>
+                            <button class="entrar-button" onclick="entrar(event)">Entrar</button>
                         </div>
 
                         <div id="mensagemErroLogin"></div>
+
+                        <!-- <div id="div_aguardar" class="loading-div">
+                            <img src="./assets/images/circle-loading.gif" id="loading-gif">
+                        </div> -->
+
                     </form>
                 </div>
 
@@ -84,7 +89,8 @@
                                 placeholder="Digite sua senha:">
                             <div id="mensagemErroSenha"></div>
 
-                            <input type="text" id="inputData" maxlength="10" placeholder="Nascimento: YYYY-MM-DD" onkeypress="mascaraData(event)" oninput="validarData()">
+                            <input type="text" id="inputData" maxlength="10" placeholder="Nascimento: YYYY-MM-DD"
+                                onkeypress="mascaraData(event)" oninput="validarData()">
 
                             <select id="selectAlbuns">
                                 <option value="" disabled selected>Selecione seu album favorito:</option>
@@ -125,153 +131,137 @@
 </body>
 <script>
 
-    
+    function entrar(event) {
+        event.preventDefault(); // Previne o comportamento padrão do formulário
 
-function entrar() {
-    aguardar();
+        var emailVar = email.value.trim();
+        var senhaVar = password.value.trim();
 
-    var emailVar = email.value;
-    var senhaVar = password.value;
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            return false;
+        }
 
-    if (emailVar == "" || senhaVar == "") {
-        cardErro.style.display = "block"
-        mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-        finalizarAguardar();
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("Codigo da resposta: " + resposta.status);
+
+            if (resposta.ok) {
+                resposta.json().then(json => {
+                    console.log(json);
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+
+                    // redirecionar para dashboard
+                    window.location.href = "./dashboard.html";
+                });
+            } else {
+                console.log("Houve um erro ao tentar realizar o login!");
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    // finalizarAguardar(texto);
+                });
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        });
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+
+
+    function cadastrar() {
+        // aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = inputNome.value;
+        var emailVar = inputEmail.value;
+        var senhaVar = inputSenha.value;
+        var dtNascVar = inputData.value;
+        var albumFavVar = selectAlbuns.value;
+
+        // Verificando se há algum campo em branco
+        if (
+            nomeVar == "" ||
+            cpfVar == "" ||
+            emailVar == "" ||
+            senhaVar == "" ||
+            dtNascVar == "" ||
+            albumFavVar == ""
+        ) {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML =
+                "(Mensagem de erro para todos os campos em branco)";
+
+            finalizarAguardar();
+            return false;
+        } else {
+            setInterval(sumirMensagem, 5000);
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar,
+                dtNascServer: dtNascVar,
+                albumFavServer: albumFavServer
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    cardErro.style.display = "block";
+
+                    mensagem_erro.innerHTML =
+                        "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                    setTimeout(() => {
+                        window.location = "logincadastro.html";
+                        hidecadastro();
+                    }, "2000");
+
+                    limparFormulario();
+                    finalizarAguardar();
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                finalizarAguardar();
+            });
+
         return false;
     }
-    else {
-        setInterval(sumirMensagem, 5000)
-    }
-
-    console.log("FORM LOGIN: ", emailVar);
-    console.log("FORM SENHA: ", senhaVar);
-
-    fetch("/usuarios/autenticar", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            emailServer: emailVar,
-            senhaServer: senhaVar
-        })
-    }).then(function (resposta) {
-        console.log("ESTOU NO THEN DO entrar()!")
-
-        if (resposta.ok) {
-            console.log(resposta);
-
-            resposta.json().then(json => {
-                console.log(json);
-                console.log(JSON.stringify(json));
-                sessionStorage.EMAIL_USUARIO = json.email;
-                sessionStorage.NOME_USUARIO = json.nome;
-                sessionStorage.ID_USUARIO = json.id;
-                sessionStorage.ALBUMS = JSON.stringify(json.ALBUMS)
-
-                setTimeout(function () {
-                    window.location = "./dashboard.html";
-                }, 1000); // apenas para exibir o loading
-
-            });
-
-        } else {
-
-            console.log("Houve um erro ao tentar realizar o login!");
-
-            resposta.text().then(texto => {
-                console.error(texto);
-                finalizarAguardar(texto);
-            });
-        }
-
-    }).catch(function (erro) {
-        console.log(erro);
-    })
-
-    return false;
-}
-
-function sumirMensagem() {
-    cardErro.style.display = "none"
-}
-
-
-
-function cadastrar() {
-    // aguardar();
-
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
-    var nomeVar = inputNome.value;
-    var emailVar = inputEmail.value;
-    var senhaVar = inputSenha.value;
-    var dtNascVar = inputData.value;
-    var albumFavVar = selectAlbuns.value;
-
-    // Verificando se há algum campo em branco
-    if (
-      nomeVar == "" ||
-      cpfVar == "" ||
-      emailVar == "" ||
-      senhaVar == "" ||
-      dtNascVar == "" ||
-      albumFavVar == "" 
-    ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
-
-      finalizarAguardar();
-      return false;
-    } else {
-      setInterval(sumirMensagem, 5000);
-    }
-
-    // Enviando o valor da nova input
-    fetch("/usuarios/cadastrar", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        nomeServer: nomeVar,
-        emailServer: emailVar,
-        senhaServer: senhaVar,
-        dtNascServer: dtNascVar,
-        albumFavServer: albumFavServer
-      }),
-    })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
-
-        if (resposta.ok) {
-          cardErro.style.display = "block";
-
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-          setTimeout(() => {
-            window.location = "logincadastro.html";
-            hidecadastro();
-          }, "2000");
-
-          limparFormulario();
-          finalizarAguardar();
-        } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
-        }
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
-      });
-
-    return false;
-  }
 </script>
-<script src="../js/script.cadastro.js"></script>
-<script src="../js/validacao.cadastro.js"></script>
+<script src="./js/script.cadastro.js"></script>
+<script src="./js/validacao.cadastro.js"></script>
+
 </html>
