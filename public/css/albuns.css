@@ -1,0 +1,187 @@
+.album-container{
+    width: 100%;
+}
+
+.container-slider{
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.lista-albuns{
+    display: flex;
+    position: relative;
+    left: 0;
+    transition: left 0.5s ease;
+}
+
+.album{
+    width: 100%;
+    flex-shrink: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 25px;
+}
+
+.album img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.botao{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #FE377F;
+    font-size: 20px;
+    border-radius: 50%;
+    border: none;
+    width: 50px;
+    height: 50px;
+}
+
+.botao-anterior {
+    left: 10px;
+}
+
+.botao-proximo {
+    right: 10px;
+}
+
+.secao-superior{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.capa-album{
+    width: 500px;
+}
+
+.capa-album img{
+    width: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.texto-album{
+    width: 400px;
+}
+
+.texto-album p{
+    font-size: 20px;
+    text-align: center;
+}
+
+.secao-inferior{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.tracklist{
+    width: 500px;
+    margin: 0;
+}
+
+.tracklist h2{
+    font-size: 50px;
+    text-align: center;
+}
+
+.album-disco{
+    width: 400px;
+}
+
+.debut{
+    background-color: #A5C9A5;
+}
+
+.debut h2{
+    color: #FFFF;
+}
+
+.fearless{
+    background-color: #FEE4BF;
+}
+
+.fearless h2{
+    color: rgb(25, 23, 23);
+}
+
+.speaknow{
+    background-color: #C7A8CB;
+}
+
+.speaknow h2{
+    color: #6E007F;
+}
+
+.red{
+    background-color: #A05B5C;
+}
+
+.red h2{
+    color: #FFFFFF;
+}
+
+.azul{
+    background-color: #B5E5F8;
+}
+
+.azul h2{
+    color: #829CB5;
+}
+
+.reputation{
+    background-color: #746F70
+}
+
+.reputation h2{
+    color: #ffff;
+}
+
+.lover{
+    background-color: #F7B0CC;
+}
+
+.lover h2{
+    color: #FE377F;
+}
+
+.folklore{
+    background-color: #CDC9C1;
+}
+
+.folklore h2{
+    color: #000000;
+}
+
+.evermore{
+    background-color: #C5AC90;
+}
+
+.evermore h2{
+    color: #743218;
+}
+
+.midnights{
+    background-color: #41537F;
+}
+
+.midnights h2{
+    color: #FFFF;
+}
+
+.ttpd{
+    background-color: #EFEBE8;
+}
+
+.ttpd h2{
+    color: #746F70;
+}
