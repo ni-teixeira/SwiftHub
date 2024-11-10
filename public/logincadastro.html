@@ -55,11 +55,7 @@
                             <button class="entrar-button" onclick="entrar(event)">Entrar</button>
                         </div>
 
-                        <div id="mensagemErroLogin"></div>
-
-                        <!-- <div id="div_aguardar" class="loading-div">
-                            <img src="./assets/images/circle-loading.gif" id="loading-gif">
-                        </div> -->
+                        <div class="mensagemErro" id="mensagemErroLogin"></div>
 
                     </form>
                 </div>
@@ -79,18 +75,18 @@
                         <div class="inputs-cadastro">
 
                             <input id="inputNome" type="text" placeholder="Digite seu nome:" oninput="validarNome()">
-                            <div id="mensagemErroNome"></div>
+                            <div class="mensagemErro" id="mensagemErroNome"></div>
 
                             <input id="inputEmail" oninput="validarEmail()" type="text"
                                 placeholder="Digite seu e-mail:">
-                            <div id="mensagemErroEmail"></div>
+                            <div class="mensagemErro" id="mensagemErroEmail"></div>
 
                             <input id="inputSenha" oninput="validarSenha()" type="password"
                                 placeholder="Digite sua senha:">
-                            <div id="mensagemErroSenha"></div>
+                            <div class="mensagemErro" id="mensagemErroSenha"></div>
 
                             <input type="text" id="inputData" maxlength="10" placeholder="Nascimento: YYYY-MM-DD"
-                                onkeypress="mascaraData(event)" oninput="validarData()">
+                                onkeypress="mascaraData(event)">
 
                             <select id="selectAlbuns">
                                 <option value="" disabled selected>Selecione seu album favorito:</option>
@@ -112,6 +108,8 @@
                             <button class="cadastro-button" type="submit" onclick="cadastrar()">Cadastre-se</button>
                         </div>
 
+                        <div class="mensagemErro" id="mensagemErroCadastro"></div>
+
                     </form>
                 </div>
 
@@ -132,14 +130,13 @@
 <script>
 
     function entrar(event) {
-        event.preventDefault(); // Previne o comportamento padrão do formulário
+        event.preventDefault(); // previne o comportamento padrão do formulário
 
         var emailVar = email.value.trim();
         var senhaVar = password.value.trim();
 
         if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            mensagemErroLogin.innerHTML = "(Mensagem de erro para todos os campos em branco)";
             return false;
         }
 
@@ -182,12 +179,13 @@
     }
 
     function sumirMensagem() {
-        cardErro.style.display = "none"
+        mensagemErroLogin.innerHTML = "";
     }
 
 
 
     function cadastrar() {
+        event.preventDefault();
         // aguardar();
 
         //Recupere o valor da nova input pelo nome do id
@@ -201,15 +199,12 @@
         // Verificando se há algum campo em branco
         if (
             nomeVar == "" ||
-            cpfVar == "" ||
             emailVar == "" ||
             senhaVar == "" ||
             dtNascVar == "" ||
             albumFavVar == ""
         ) {
-            cardErro.style.display = "block";
-            mensagem_erro.innerHTML =
-                "(Mensagem de erro para todos os campos em branco)";
+            mensagemErroCadastro.innerHTML = "Revise seu cadastro! Há campos em branco.";
 
             finalizarAguardar();
             return false;
@@ -230,16 +225,14 @@
                 emailServer: emailVar,
                 senhaServer: senhaVar,
                 dtNascServer: dtNascVar,
-                albumFavServer: albumFavServer
+                albumFavServer: albumFavVar
             }),
         })
             .then(function (resposta) {
                 console.log("resposta: ", resposta);
 
                 if (resposta.ok) {
-                    cardErro.style.display = "block";
-
-                    mensagem_erro.innerHTML =
+                    mensagemErroCadastro.innerHTML =
                         "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
                     setTimeout(() => {
@@ -248,14 +241,12 @@
                     }, "2000");
 
                     limparFormulario();
-                    finalizarAguardar();
                 } else {
                     throw "Houve um erro ao tentar realizar o cadastro!";
                 }
             })
             .catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
-                finalizarAguardar();
             });
 
         return false;
