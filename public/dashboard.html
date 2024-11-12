@@ -46,15 +46,15 @@
         <div class="indicadores">
             <div class="indicador">
                 <p id="titulo"> Quantidade de usuarios cadastrados: </p>
-                <p> 50 </p>
+                <p id="kpi1">  </p>
             </div>
             <div class="indicador">
                 <p id="titulo"> Media de idade: </p>
-                <p> 50 </p>
+                <p id="kpi2">  </p>
             </div>
             <div class="indicador">
                 <p id="titulo"> Album mais curtido: </p>
-                <p> 50 </p>
+                <p id="kpi3">  </p>
             </div>
         </div>
 
@@ -84,7 +84,7 @@
 </html>
 
 <script>
-    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    // b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     let proximaAtualizacao;
 
@@ -119,11 +119,11 @@
         }
     }
 
-    function alterarTitulo(idAquario) {
-        var tituloAquario = document.getElementById(`tituloAquario${idAquario}`)
-        var descricao = JSON.parse(sessionStorage.AQUARIOS).find(item => item.id == idAquario).descricao;
-        tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>" + descricao + "</span>"
-    }
+    // function alterarTitulo(idAquario) {
+    //     var tituloAquario = document.getElementById(`tituloAquario${idAquario}`)
+    //     var descricao = JSON.parse(sessionStorage.AQUARIOS).find(item => item.id == idAquario).descricao;
+    //     tituloAquario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>" + descricao + "</span>"
+    // }
 
     function exibirAquario(idAquario) {
         let todosOsGraficos = JSON.parse(sessionStorage.AQUARIOS);

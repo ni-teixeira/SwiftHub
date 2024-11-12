@@ -7,7 +7,7 @@ const pontos = document.querySelectorAll(".ponto");
 var imagemAtual = 0;
 
 function mostrarImagem(numero) {
-  listaAlbuns.style.left = -numero * 100 + "%"; // multiplica por 800 porque cada imagem tem 800px de largura
+  listaAlbuns.style.left = -numero * 100 + "%"; // multiplica por 100 porque cada div tem 100 de largura
 
   for (var i = 0; i < pontos.length; i++) {
     pontos[i].classList.remove("ativo");
@@ -18,7 +18,7 @@ function mostrarImagem(numero) {
 
 function proximaImagem() {
 
-  if (imagemAtual < 11) {
+  if (imagemAtual < 10) {
     imagemAtual = imagemAtual + 1;
   }
   else {
@@ -34,7 +34,7 @@ function imagemAnterior() {
     imagemAtual = imagemAtual - 1;
   }
   else {
-    imagemAtual = 4;
+    imagemAtual = 10;
   }
   mostrarImagem(imagemAtual);
 }
@@ -42,13 +42,3 @@ function imagemAnterior() {
 // adicionando clique nos botões
 botaoProximo.addEventListener("click", proximaImagem);
 botaoAnterior.addEventListener("click", imagemAnterior);
-
-// adicionando clique nos pontos
-for (let i = 0; i < pontos.length; i++) {
-  pontos[i].addEventListener("click", () => {
-    imagemAtual = i;
-    mostrarImagem(imagemAtual);
-  });
-}
-
-// setInterval(proximaImagem, 5000);

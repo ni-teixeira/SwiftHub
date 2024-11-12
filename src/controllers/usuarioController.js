@@ -39,6 +39,7 @@ function autenticar(req, res) {
           //             res.status(204).json({ albums: [] });
           //         }
           //     })
+          
         } else if (resultadoAutenticar.length == 0) {
           res.status(403).send("Email e/ou senha inválido(s)");
         } else {

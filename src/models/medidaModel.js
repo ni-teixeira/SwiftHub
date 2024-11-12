@@ -1,6 +1,5 @@
 var database = require("../database/config");
 
-
 function buscarKPIs(){
     var instrucaoSql = `
     SELECT 
