@@ -11,8 +11,7 @@ function autenticar(req, res) {
     res.status(400).send("Sua senha está indefinida!");
   } else {
     usuarioModel
-      .autenticar(email, senha)
-      .then(function (resultadoAutenticar) {
+      .autenticar(email, senha).then(function (resultadoAutenticar) {
         console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
         console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
 
