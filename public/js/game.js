@@ -1,5 +1,5 @@
 var pontuacaoAtual = 0;
-var respostasCorretas = {1:'A', 2:'D', 3:'C'};
+var respostasCorretas = {1:'A', 2:'D', 3:'B'};
 
 // pergunta atual = numero do onclick
 // resposta = a letra do onclick
@@ -28,6 +28,10 @@ function verificarResposta (perguntaAtual, resposta) {
     else {
         mostrarResultadoFinal();
     }
+
+    var audio = document.getElementById(`audio${perguntaAtual}`);
+    audio.pause();
+
 }
 
 function mostrarResultadoFinal() {
@@ -35,9 +39,11 @@ function mostrarResultadoFinal() {
     var erros = 3 - acertos;
     
     var resultado = document.getElementById('resultado');
+
     resultado.style.display = 'block';
+
     resultado.innerHTML = `
-        <h2 style="font-size:50px;color:#FE377F;margin:10px 0">Quiz Completo!</h2>
+        <h2 style="font-size:50px;color:#FE377F;margin:10px 0"> ⋆⭒˚.⋆ Jogo completo! ⋆⭒˚.⋆ </h2>
         <div style="font-size:24px;color:#FE377F;margin:10px 0">
             Pontuação Final: ${pontuacaoAtual} pontos
         </div>
