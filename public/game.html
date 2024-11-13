@@ -9,95 +9,117 @@
     <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/scroll.css" />
-    <link rel="stylesheet" href="game.css">
-  </head>
+    <link rel="stylesheet" href="./css/game.css">
+</head>
 
 <body>
 
     <header>
         <nav class="navbar2">
             <div class="logo1">
-                <img src="../assets/images/swifthub-branco.png" alt="Swift Hub logo">
+                <img src="./assets/images/swifthub-branco.png" alt="Swift Hub logo">
             </div>
             <div class="menu1">
                 <ul>
                     <li><a href="../html/index.html">Home</a></li>
                     <li class="divider"> ✧ </li>
-                    <li><a href="../html/sobre.html">Sobre</a></li>
+                    <li><a href="./html/sobre.html">Sobre</a></li>
                     <li class="divider"> ✧ </li>
-                    <li><a href="#">Albuns</a></li>
+                    <li><a href="./albuns.html">Albuns</a></li>
                     <li class="divider"> ✧ </li>
-                    <li><a href="../html/dashboard.html">Dashboard</a></li>
+                    <li><a href="./html/dashboard.html">Dashboard</a></li>
                     <li class="divider"> ✧ </li>
-                    <li><a href="../html/game.html">Acerte a música</a></li>
+                    <li><a href="./html/game.html">Acerte a música</a></li>
                 </ul>
             </div>
             <div class="authbuttons">
-                <a href="../html/logincadastro.html" id="login"> Login </a>
+                <a href="./html/logincadastro.html" id="login"> Login </a>
             </div>
         </nav>
     </header>
 
-    <h1 class="cabecalho">Acerte a música</h1>
+    <div class="container">
 
-    <div class="container-principal">
-        <div class="pontuacao">Pontos: <span id="pontos">0</span></div>
+        <h1 class="cabecalho"> ★ Acerte a música ⋆⸜</h1>
 
-        <!-- primeira pergunta -->
-        <div class="pergunta ativa" id="p1">
-            <div class="player">
-                <audio id="audio1" controls>
-                    <source src="" type="audio/mp3">
-                </audio>
+        <div class="container-principal">
+            <div class="pontuacao">
+                <p> Pontos: <span id="pontos">0</span>
+                </p>
             </div>
-            <div class="opcoes">
-                <button class="opcao" onclick="verificarResposta(this, 1, 'A')">Love Story</button>
-                <button class="opcao" onclick="verificarResposta(this, 1, 'B')">RED</button>
-                <button class="opcao" onclick="verificarResposta(this, 1, 'C')">Shake it Off</button>
-                <button class="opcao" onclick="verificarResposta(this, 1, 'D')">22</button>
+
+            <!-- <div class="imagens-container">
+                <div class="imagem-desenho">
+                    <img src="./assets/images/desenho (1).png" alt="Imagem 1">
+                </div>
+                <div class="imagem-desenho">
+                    <img src="./assets/images/desenho (2).png" alt="Imagem 2">
+                </div>
+            </div> -->
+
+            <!-- primeira pergunta -->
+            <div class="pergunta ativa" id="p1">
+                <div class="player">
+                    <audio id="audio1" controls>
+                        <source src="" type="audio/mp3">
+                    </audio>
+                </div>
+                <div class="opcoes1">
+                    <button class="opcao" onclick="verificarResposta( 1, 'A')">Love Story</button>
+                    <button class="opcao" onclick="verificarResposta( 1, 'B')">RED</button>
+                </div>
+                <div class="opcoes2">
+                    <button class="opcao" onclick="verificarResposta( 1, 'C')">Shake it Off</button>
+                    <button class="opcao" onclick="verificarResposta( 1, 'D')">22</button>
+                </div>
+            </div>
+
+            <!-- segunda pergunta -->
+            <div class="pergunta" id="p2">
+                <div class="player">
+                    <audio id="audio2" controls>
+                        <source src="" type="audio/mp3">
+                    </audio>
+                </div>
+                <div class="opcoes1">
+                    <button class="opcao" onclick="verificarResposta( 2, 'A')">Blank Space</button>
+                    <button class="opcao" onclick="verificarResposta( 2, 'B')">Cruel Summer</button>
+                </div>
+                <div class="opcoes2">
+                    <button class="opcao" onclick="verificarResposta( 2, 'C')">Lover</button>
+                    <button class="opcao" onclick="verificarResposta( 2, 'D')">Karma</button>
+                </div>
+            </div>
+
+            <!-- terceira pergunta -->
+            <div class="pergunta" id="p3">
+                <div class="player">
+                    <audio id="audio3" controls>
+                        <source src="" type="audio/mp3">
+                    </audio>
+                </div>
+                <div class="opcoes1">
+                    <button class="opcao" onclick="verificarResposta( 3, 'A')">Innocent</button>
+                    <button class="opcao" onclick="verificarResposta( 3, 'B')">Fearless</button>
+                </div>
+                <div class="opcoes2">
+                    <button class="opcao" onclick="verificarResposta( 3, 'C')">Delicate</button>
+                    <button class="opcao" onclick="verificarResposta( 3, 'D')">The archer</button>
+                </div>
+            </div>
+
+            <!-- tela de resultado final -->
+            <div class="resultado" id="resultado">
+                <h2>★ Jogo completo! ⋆⸜</h2>
+                <div id="pontuacaoFinal"></div>
             </div>
         </div>
 
-        <!-- segunda pergunta -->
-        <div class="pergunta" id="p2">
-            <div class="player">
-                <audio id="audio2" controls>
-                    <source src="" type="audio/mp3">
-                </audio>
-            </div>
-            <div class="opcoes">
-                <button class="opcao" onclick="verificarResposta(this, 2, 'A')">Blank Space</button>
-                <button class="opcao" onclick="verificarResposta(this, 2, 'B')">Cruel Summer</button>
-                <button class="opcao" onclick="verificarResposta(this, 2, 'C')">Lover</button>
-                <button class="opcao" onclick="verificarResposta(this, 2, 'D')">Karma</button>
-            </div>
-        </div>
-
-        <!-- terceira pergunta -->
-        <div class="pergunta" id="p3">
-            <div class="player">
-                <audio id="audio3" controls>
-                    <source src="" type="audio/mp3">
-                </audio>
-            </div>
-            <div class="opcoes">
-                <button class="opcao" onclick="verificarResposta(this, 3, 'A')">Innocent</button>
-                <button class="opcao" onclick="verificarResposta(this, 3, 'B')">Fearless</button>
-                <button class="opcao" onclick="verificarResposta(this, 3, 'C')">Delicate</button>
-                <button class="opcao" onclick="verificarResposta(this, 3, 'D')">The archer</button>
-            </div>
-        </div>
-
-        <!-- tela de resultado final -->
-        <div class="resultado" id="resultado">
-            <h2>Quiz Completo!</h2>
-            <div id="pontuacaoFinal"></div>
-        </div>
     </div>
 
     <footer>
         <div class="logo-footer">
-            <img src="../assets/images/sh-rosa.png" alt="logo swift hub" />
+            <img src="./assets/images/sh-rosa.png" alt="logo swift hub" />
         </div>
         <div class="text-footer">
             <p>Nicoly Carvalho Teixeira 〃 nicoly.teixeira@sptech.school</p>
@@ -106,5 +128,7 @@
     </footer>
 
 </body>
+
+<script src="./js/game.js"></script>
 
 </html>

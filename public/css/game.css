@@ -1,0 +1,117 @@
+.container{
+    background-image: url('../assets/images/gif-background.gif');
+    background-size: cover;
+}
+
+.cabecalho {
+    color: #FE377F;
+    font-size: 50px;
+    text-align: center;
+    font-family: "Holen vintage";
+    font-weight: bolder;
+}
+
+.container-principal {
+    background-color: #FFDAE7;
+    border-radius: 15px;
+    height: 60vh;
+    margin-bottom: 15px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.pontuacao {
+    font-size: 20px;
+    color: #FE377F;
+    font-weight: bold;
+}
+
+.pontuacao p{
+    padding: 15px;
+}
+
+.player {
+    width: 50%;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    cursor: url(../assets/cursor/link\ 1000\ \(1\).cur), auto;
+}
+
+.player audio {
+    width: 100%;
+}
+
+.imagens-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.imagem-desenho {
+    width: 30%; 
+}
+
+.imagem-desenho img {
+    width: 300px;
+    height: auto; 
+    object-fit: cover;
+}
+
+.opcoes1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    gap: 25px;
+}
+
+.opcoes2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    gap: 25px;
+    padding-top: 10px;
+}
+
+.opcao {
+    border: none;
+    border-radius: 25px;
+    background-color: white;
+    color: #FE377F;
+    font-size: 20px;
+    cursor: url(../assets/cursor/link\ 1000\ \(1\).cur), auto;
+    transition: color 0.5s ease-in-out;
+    height: 10vh;
+    width: 30vw;
+}
+
+.opcao:hover {
+    background-color: #FE377F;
+    color: white;
+}
+
+.opcao.correta {
+    background-color: #c2fcc2;
+    color: white;
+}
+
+.opcao.incorreta {
+    background-color: #FFB6C1;
+    color: white;
+}
+
+.resultado {
+    text-align: center;
+    margin-top: 10px;
+    display: none;
+}
+
+.pergunta {
+    display: none;
+}
+
+.pergunta.ativa {
+    display: block;
+}
