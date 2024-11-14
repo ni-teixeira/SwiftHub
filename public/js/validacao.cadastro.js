@@ -4,6 +4,8 @@ var mensagemErroSenha = document.getElementById("mensagemErroSenha");
 var mensagemErroNome = document.getElementById("mensagemErroNome");
 var mensagemErroEmail = document.getElementById("mensagemErroEmail");
 
+var bloqueio = true;
+
 function validarSenha() {
   var senha = document.getElementById("inputSenha").value;
   mensagemErroSenha.innerHTML = ``;
@@ -15,15 +17,18 @@ function validarSenha() {
   //validando tamanho da senha
   if (tamanhoSenha < 8) {
     mensagensErro.push(`A senha precisa ter oito caracteres.`);
+    bloqueio = false;
   }
   if (tamanhoSenha > 30) {
     mensagensErro.push(`A senha precisa ter no máximo trinta caracteres.`);
+    bloqueio = false;
   }
 
   //validando caractere especial
   for (var i = 0; i < tamanhoSenha; i++) {
     if (caracteresEspeciais.includes(senha[i])) {
       temCaractereEspecial = true;
+      bloqueio = false;
     }
   }
 
@@ -31,6 +36,7 @@ function validarSenha() {
     mensagensErro.push(
       `A senha precisa conter ao menos um caractere especial.`
     );
+    bloqueio = false;
   }
 
   // criando array com letras e spread operator
@@ -42,15 +48,18 @@ function validarSenha() {
   var temMaiuscula = maiusculas.some((letra) => senha.includes(letra));
   if (!temMinuscula) {
     mensagensErro.push("A senha precisa conter ao menos uma letra minúscula.");
+    bloqueio = false;
   }
   if (!temMaiuscula) {
     mensagensErro.push("A senha precisa conter ao menos uma letra maiúscula.");
+    bloqueio = false;
   }
 
   const numeros = [..."01234567889"];
   var temNumero = numeros.some((numero) => senha.includes(numero));
   if (!temNumero) {
     mensagensErro.push("A senha preciso conter ao menos um número.");
+    bloqueio = false;
   }
 
   document.getElementById("mensagemErroSenha").innerHTML =
@@ -67,6 +76,7 @@ function validarEmail() {
 
   if (!finalEmailCom && !finalEmailBr) {
     mensagemErroEmail.innerHTML += `O e-mail não é válido. Deve terminar com '.com' ou '.br'. <br>`;
+    bloqueio = false;
   }
 
   // valida se tem arroba
@@ -74,6 +84,7 @@ function validarEmail() {
 
   if (!arroba) {
     mensagemErroEmail.innerHTML += `O e-mail não é válido. Deve conter '@'. <br>`;
+    bloqueio = false;
   }
 }
 
@@ -86,10 +97,10 @@ function validarNome() {
   // valida tamanho do nome
   if (tamanhoNome <= 3) {
     mensagemErroNome.innerHTML = `O nome precisa ter ao menos três caracteres.`;
-    return;
+    bloqueio = false;
   } else if (tamanhoNome > 45) {
     mensagemErroNome.innerHTML = `O nome passa do limite de caracteres.`;
-    return;
+    bloqueio = false;
   }
 }
 

@@ -133,7 +133,7 @@
 <script>
 
     function entrar(event) {
-        event.preventDefault(); // previne o comportamento padrão do formulário
+        event.preventDefault(); // previne o comportamento padrao do formulario
 
         var emailVar = email.value.trim();
         var senhaVar = password.value.trim();
@@ -159,8 +159,7 @@
             console.log("Codigo da resposta: " + resposta.status);
 
             if (resposta.ok) {
-                resposta.json().then(json => {
-                    console.log(json);
+                resposta.json().then(json => { console.log(json);
 
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
@@ -213,6 +212,7 @@
             setInterval(sumirMensagem, 5000);
         }
 
+        if (bloqueio){
         // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {
             method: "POST",
@@ -251,6 +251,7 @@
             });
 
         return false;
+        }
     }
 </script>
 <script src="./js/script.cadastro.js"></script>

@@ -82,23 +82,13 @@
     color: #FE377F;
     font-size: 20px;
     cursor: url(../assets/cursor/link\ 1000\ \(1\).cur), auto;
-    transition: color 0.5s ease-in-out;
+    transition: color 0.8s ease-in-out;
     height: 10vh;
     width: 30vw;
 }
 
 .opcao:hover {
     background-color: #FE377F;
-    color: white;
-}
-
-.opcao.correta {
-    background-color: #c2fcc2;
-    color: white;
-}
-
-.opcao.incorreta {
-    background-color: #FFB6C1;
     color: white;
 }
 
@@ -121,4 +111,42 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.inicio{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inicio h2{
+    color: #FE377F;
+    margin: 0;
+    font-size: 30px;
+}
+
+.inicio a {
+    border: none;
+    border-radius: 25px;
+    background-color: white;
+    color: #FE377F;
+    font-size: 20px;
+    cursor: url(../assets/cursor/link\ 1000\ \(1\).cur), auto;
+    transition: color 1.0s ease-in-out;
+    height: 8vh;
+    width: 18vw;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inicio a:hover{
+    background-color: #FE377F;
+    color: white;
+}
+
+.inicio img{
+    height: 150px;
 }

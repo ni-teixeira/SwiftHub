@@ -11,7 +11,7 @@ function verificarResposta (perguntaAtual, resposta) {
         document.getElementById('pontos').innerHTML = pontuacaoAtual;
     }
     
-    // esconde a pergunta atual - elemento p do html
+    // esconde a pergunta atual dps de validar a reposta
     document.getElementById('p' + perguntaAtual).style.display = 'none';
     
     // se for primeira pergunta mostra a segunda
@@ -48,5 +48,5 @@ function mostrarResultadoFinal() {
             Pontuação Final: ${pontuacaoAtual} pontos
         </div>
         <p>Você acertou ${acertos} e errou ${erros} questões!</p>
-    `;
+        <a href="gameInicio.html"> Começar Quiz! </a>`;
 }
