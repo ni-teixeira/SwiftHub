@@ -112,25 +112,6 @@
     display: block;
 }
 
-.resultado{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.resultado h2{
-    font-size:50px;
-    color:#FE377F;
-    margin:10px 0
-}
-
-.resultado #pontuacaoFinal{
-    font-size:24px;
-    color:#FE377F;
-    margin:10px 0"
-}
-
 .inicio{
     display: flex;
     flex-direction: column;
@@ -167,4 +148,42 @@
 
 .inicio img{
     height: 150px;
+}
+
+.resultado a {
+    border: none;
+    border-radius: 25px;
+    background-color: white;
+    color: #FE377F;
+    font-size: 20px;
+    cursor: url(../assets/cursor/link\ 1000\ \(1\).cur), auto;
+    transition: color 1.0s ease-in-out;
+    height: 8vh;
+    width: 18vw;
+    text-decoration: none;
+    
+}
+
+.resultado a:hover{
+    background-color: #FE377F;
+    color: white;
+}
+
+.resultado{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.resultado h2{
+    font-size:50px;
+    color:#FE377F;
+    margin:10px 0
+}
+
+.resultado #pontuacaoFinal{
+    font-size:24px;
+    color:#FE377F;
+    margin:10px 0"
 }

@@ -24,7 +24,7 @@ function verificarResposta (perguntaAtual, resposta) {
         document.getElementById('p3').style.display = 'block';
     }
 
-    // se for a última pergunta
+    // se for a ultima pergunta
     else {
         mostrarResultadoFinal();
     }
@@ -40,11 +40,9 @@ function mostrarResultadoFinal() {
     
     var resultado = document.getElementById('resultado');
 
-    resultado.style.display = 'block';
-
     resultado.innerHTML = `
         <h2> ⋆⭒˚.⋆ Jogo completo! ⋆⭒˚.⋆ </h2>
         <div> Pontuação Final: ${pontuacaoAtual} pontos </div>
         <p>Você acertou ${acertos} e errou ${erros} questões!</p>
-        <a href="gameInicio.html"> Tentar novamente! </a>`;
+        <a class="resultado" href="gameInicio.html"> Tentar novamente! </a>`;
 }
