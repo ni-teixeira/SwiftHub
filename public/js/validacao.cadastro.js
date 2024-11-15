@@ -4,112 +4,134 @@ var mensagemErroSenha = document.getElementById("mensagemErroSenha");
 var mensagemErroNome = document.getElementById("mensagemErroNome");
 var mensagemErroEmail = document.getElementById("mensagemErroEmail");
 
-var bloqueio = true;
+var nomeValido = false;
+var emailValido = false;
+var senhaValida = false;
 
 function validarSenha() {
   var senha = document.getElementById("inputSenha").value;
   mensagemErroSenha.innerHTML = ``;
-
+ 
   var tamanhoSenha = senha.length;
   var temCaractereEspecial = false;
   var mensagensErro = [];
-
-  //validando tamanho da senha
+ 
+  senhaValida = true;
+ 
+  // Validando tamanho da senha
   if (tamanhoSenha < 8) {
     mensagensErro.push(`A senha precisa ter oito caracteres.`);
-    bloqueio = false;
+    senhaValida = false;
   }
   if (tamanhoSenha > 30) {
     mensagensErro.push(`A senha precisa ter no máximo trinta caracteres.`);
-    bloqueio = false;
+    senhaValida = false;
   }
-
-  //validando caractere especial
+ 
+  // Validando caractere especial
   for (var i = 0; i < tamanhoSenha; i++) {
     if (caracteresEspeciais.includes(senha[i])) {
       temCaractereEspecial = true;
-      bloqueio = false;
     }
   }
-
+ 
   if (!temCaractereEspecial) {
-    mensagensErro.push(
-      `A senha precisa conter ao menos um caractere especial.`
-    );
-    bloqueio = false;
+    mensagensErro.push(`A senha precisa conter ao menos um caractere especial.`);
+    senhaValida = false;
   }
-
-  // criando array com letras e spread operator
+ 
+  // Validando letras minúsculas e maiúsculas
   const minusculas = [..."abcdefghijklmnopqrstuvwxyz"];
   const maiusculas = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
-  // verifica com o some se passa em pelo menos uma das letras dentro do array
-  // o "letra" eh o nome do elemento do array
   var temMinuscula = minusculas.some((letra) => senha.includes(letra));
   var temMaiuscula = maiusculas.some((letra) => senha.includes(letra));
+ 
   if (!temMinuscula) {
     mensagensErro.push("A senha precisa conter ao menos uma letra minúscula.");
-    bloqueio = false;
+    senhaValida = false;
   }
   if (!temMaiuscula) {
     mensagensErro.push("A senha precisa conter ao menos uma letra maiúscula.");
-    bloqueio = false;
+    senhaValida = false;
   }
-
-  const numeros = [..."01234567889"];
+ 
+  // Validando número
+  const numeros = [..."0123456789"];
   var temNumero = numeros.some((numero) => senha.includes(numero));
   if (!temNumero) {
-    mensagensErro.push("A senha preciso conter ao menos um número.");
-    bloqueio = false;
+    mensagensErro.push("A senha precisa conter ao menos um número.");
+    senhaValida = false;
   }
-
-  document.getElementById("mensagemErroSenha").innerHTML =
-    mensagensErro.join("<br>");
+ 
+  mensagemErroSenha.innerHTML = mensagensErro.join("<br>");
+ 
+  // Chama a função para verificar se pode habilitar o botão
+  verificarCampos();
 }
-
+ 
 function validarEmail() {
   var email = document.getElementById("inputEmail").value;
   mensagemErroEmail.innerHTML = ``;
-
-  // valida se tem .com ou .br
+ 
+  emailValido = true;
+ 
+  // Valida se tem .com ou .br
   var finalEmailCom = email.endsWith(".com");
   var finalEmailBr = email.endsWith(".br");
-
+ 
   if (!finalEmailCom && !finalEmailBr) {
     mensagemErroEmail.innerHTML += `O e-mail não é válido. Deve terminar com '.com' ou '.br'. <br>`;
-    bloqueio = false;
+    emailValido = false;
   }
-
-  // valida se tem arroba
+ 
+  // Valida se tem arroba
   var arroba = email.includes("@");
-
+ 
   if (!arroba) {
     mensagemErroEmail.innerHTML += `O e-mail não é válido. Deve conter '@'. <br>`;
-    bloqueio = false;
+    emailValido = false;
   }
+ 
+  // Chama a função para verificar se pode habilitar o botão
+  verificarCampos();
 }
-
+ 
 function validarNome() {
   var nome = document.getElementById("inputNome").value;
   mensagemErroNome.innerHTML = ``;
-
+ 
+  nomeValido = true;
+ 
   var tamanhoNome = nome.length;
-
-  // valida tamanho do nome
+ 
+  // Valida tamanho do nome
   if (tamanhoNome <= 3) {
     mensagemErroNome.innerHTML = `O nome precisa ter ao menos três caracteres.`;
-    bloqueio = false;
+    nomeValido = false;
   } else if (tamanhoNome > 45) {
     mensagemErroNome.innerHTML = `O nome passa do limite de caracteres.`;
-    bloqueio = false;
+    nomeValido = false;
+  }
+ 
+  // Chama a função para verificar se pode habilitar o botão
+  verificarCampos();
+}
+ 
+function verificarCampos() {
+  var botaoCadastro = document.querySelector('.cadastro-button');
+ 
+  if (nomeValido && emailValido && senhaValida) {
+    botaoCadastro.disabled = false;
+  } else {
+    botaoCadastro.disabled = true;
   }
 }
-
+ 
 function mascaraData(event) {
   var input = document.getElementById("inputData");
   var data = input.value;
   var dataLength = data.length;
-
-  // ano 4 - mes - dia 7
+ 
   if (event.key != "Backspace") {
     if (dataLength == 4 || dataLength == 7) {
       data += "/";

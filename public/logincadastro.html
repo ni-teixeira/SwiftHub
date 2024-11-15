@@ -55,7 +55,7 @@
                             <button class="entrar-button" onclick="entrar(event)">Entrar</button>
                         </div>
 
-                        <div class="mensagemErro" id="mensagemErroLogin"></div>
+                        <div class="mensagemErro" id="mensagemErroLogin" style="text-align: center;"></div>
 
                     </form>
                 </div>
@@ -136,7 +136,7 @@
         var senhaVar = password.value.trim();
 
         if (emailVar == "" || senhaVar == "") {
-            mensagemErroLogin.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            mensagemErroLogin.innerHTML = "Nenhum campo pode estar em branco";
             return false;
         }
 
@@ -183,17 +183,14 @@
     }
 
     function cadastrar() {
-        // aguardar();
 
-        //Recupere o valor da nova input pelo nome do id
-        // Agora vá para o método fetch logo abaixo
+        // verificar se todos os campos estao preenchidos
         var nomeVar = inputNome.value;
         var emailVar = inputEmail.value;
         var senhaVar = inputSenha.value;
         var dtNascVar = inputData.value;
         var albumFavVar = selectAlbuns.value;
 
-        // Verificando se há algum campo em branco
         if (
             nomeVar == "" ||
             emailVar == "" ||
@@ -201,54 +198,49 @@
             dtNascVar == "" ||
             albumFavVar == ""
         ) {
-            mensagemErroCadastro.innerHTML = "Revise seu cadastro! Há campos em branco.";
-
-            finalizarAguardar();
+            //mensagemErroCadastro.innerHTML = "Revise seu cadastro! Há campos em branco.";
+            alert("aaaa")
             return false;
-        } else {
-            setInterval(sumirMensagem, 5000);
         }
 
-        // Enviando o valor da nova input
-        fetch("/usuarios/cadastrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                nomeServer: nomeVar,
-                emailServer: emailVar,
-                senhaServer: senhaVar,
-                dtNascServer: dtNascVar,
-                albumFavServer: albumFavVar
-            }),
-        })
-            .then(function (resposta) {
-                console.log("resposta: ", resposta);
-
-                if (resposta.ok) {
-                    mensagemErroCadastro.innerHTML =
-                        "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-                    setTimeout(() => {
-                        window.location = "logincadastro.html";
-                        hidecadastro();
-                    }, "2000");
-
-                    limparFormulario();
-                } else {
-                    throw "Houve um erro ao tentar realizar o cadastro!";
-                }
+            // enviando os dados para o servidor
+            fetch("/usuarios/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    nomeServer: nomeVar,
+                    emailServer: emailVar,
+                    senhaServer: senhaVar,
+                    dtNascServer: dtNascVar,
+                    albumFavServer: albumFavVar
+                }),
             })
-            .catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-            });
+                .then(function (resposta) {
+                    console.log("resposta: ", resposta);
 
-        return false;
+                    if (resposta.ok) {
+                        mensagemErroCadastro.innerHTML =
+                            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
-    }
+                        setTimeout(() => {
+                            window.location = "logincadastro.html";
+                            hidecadastro();
+                        }, 2000);
+
+                        limparFormulario();
+                    } else {
+                        resposta.text().then(function (texto) {
+                            mensagemErroCadastro.innerHTML = texto;
+                        });
+                    }
+                })
+                .catch(function (erro) {
+                    console.log(`#ERRO: ${erro}`);
+                });
+        }
+
 </script>
 <script src="./js/script.cadastro.js"></script>
 <script src="./js/validacao.cadastro.js"></script>
