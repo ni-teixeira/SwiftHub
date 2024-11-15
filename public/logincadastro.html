@@ -18,26 +18,23 @@
 
         <header>
             <nav class="navbar">
-              <div class="logo1">
-                <img
-                  src="../assets/images/swifthub-branco.png"
-                  alt="Swift Hub logo"
-                />
-              </div>
-              <div class="menu1">
-                <ul>
-                  <li><a href="./index.html">Home</a></li>
-                  <li class="divider">✧</li>
-                  <li><a href="./sobre.html">Sobre</a></li>
-                  <li class="divider">✧</li>
-                  <li><a href="./albuns.html">Albuns</a></li>
-                </ul>
-              </div>
-              <div class="authbuttons">
-                <a href="./logincadastro.html" id="login"> Login </a>
-              </div>
+                <div class="logo1">
+                    <img src="../assets/images/swifthub-branco.png" alt="Swift Hub logo" />
+                </div>
+                <div class="menu1">
+                    <ul>
+                        <li><a href="./index.html">Home</a></li>
+                        <li class="divider">✧</li>
+                        <li><a href="./sobre.html">Sobre</a></li>
+                        <li class="divider">✧</li>
+                        <li><a href="./albuns.html">Albuns</a></li>
+                    </ul>
+                </div>
+                <div class="authbuttons">
+                    <a href="./logincadastro.html" id="login"> Login </a>
+                </div>
             </nav>
-          </header>
+        </header>
 
         <div class="container-login">
             <div class="login-wrapper">
@@ -159,7 +156,8 @@
             console.log("Codigo da resposta: " + resposta.status);
 
             if (resposta.ok) {
-                resposta.json().then(json => { console.log(json);
+                resposta.json().then(json => {
+                    console.log(json);
 
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
@@ -185,7 +183,6 @@
     }
 
     function cadastrar() {
-        event.preventDefault();
         // aguardar();
 
         //Recupere o valor da nova input pelo nome do id
@@ -212,7 +209,6 @@
             setInterval(sumirMensagem, 5000);
         }
 
-        if (bloqueio){
         // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {
             method: "POST",
@@ -251,7 +247,7 @@
             });
 
         return false;
-        }
+
     }
 </script>
 <script src="./js/script.cadastro.js"></script>
