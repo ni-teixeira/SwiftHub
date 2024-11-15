@@ -43,10 +43,8 @@ function mostrarResultadoFinal() {
     resultado.style.display = 'block';
 
     resultado.innerHTML = `
-        <h2 style="font-size:50px;color:#FE377F;margin:10px 0"> ⋆⭒˚.⋆ Jogo completo! ⋆⭒˚.⋆ </h2>
-        <div style="font-size:24px;color:#FE377F;margin:10px 0">
-            Pontuação Final: ${pontuacaoAtual} pontos
-        </div>
+        <h2> ⋆⭒˚.⋆ Jogo completo! ⋆⭒˚.⋆ </h2>
+        <div> Pontuação Final: ${pontuacaoAtual} pontos </div>
         <p>Você acertou ${acertos} e errou ${erros} questões!</p>
-        <a href="gameInicio.html"> Começar Quiz! </a>`;
+        <a href="gameInicio.html"> Tentar novamente! </a>`;
 }

@@ -14,7 +14,7 @@
 .container-principal {
     background-color: #FFDAE7;
     border-radius: 15px;
-    height: 60vh;
+    height: 65vh;
     margin-bottom: 15px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
@@ -32,7 +32,7 @@
 .player {
     width: 50%;
     margin: 30px auto;
-    padding: 20px;
+    /* padding: 20px; */
     border-radius: 15px;
     text-align: center;
     cursor: url(../assets/cursor/link\ 1000\ \(1\).cur), auto;
@@ -40,6 +40,12 @@
 
 .player audio {
     width: 100%;
+}
+
+.pergunta h2{
+    text-align: center;
+    font-size: 30px;
+    color: #FE377F;
 }
 
 .imagens-container {
@@ -111,6 +117,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.resultado h2{
+    font-size:50px;
+    color:#FE377F;
+    margin:10px 0
+}
+
+.resultado #pontuacaoFinal{
+    font-size:24px;
+    color:#FE377F;
+    margin:10px 0"
 }
 
 .inicio{
