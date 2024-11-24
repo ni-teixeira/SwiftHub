@@ -3,6 +3,10 @@
     background-size: cover;
 }
 
+footer{
+    background-color: white;
+}
+
 .cabecalho {
     color: #FE377F;
     font-size: 50px;
