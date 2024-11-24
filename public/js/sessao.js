@@ -14,7 +14,6 @@ function validarSessao() {
 
 function limparSessao() {
     sessionStorage.clear();
+    alert('Voce foi deslogado com sucesso!')
     window.location = "../logincadastro.html";
 }
-
-
