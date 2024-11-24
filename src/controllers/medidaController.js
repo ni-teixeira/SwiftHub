@@ -53,7 +53,7 @@ function buscarDadosGraficoAlbum(req, res) {
 
     medidaModel.buscarUsuariosPorAlbum().then(function (resultado) {
         if (resultado.length > 0) {
-            // Formata os dados para o gráfico
+            // formata os dados para o grafico
             const labels = resultado.map(r => r.nome_album);
             const dados = resultado.map(r => r.qtd_usuarios);
             const porcentagens = resultado.map(r => r.porcentagem);
