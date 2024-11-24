@@ -184,6 +184,9 @@
 
     function cadastrar() {
 
+        var mensagemErroCadastro = document.getElementById("mensagemErroCadastro");
+        mensagemErroCadastro.innerHTML = "";
+
         // verificar se todos os campos estao preenchidos
         var nomeVar = inputNome.value;
         var emailVar = inputEmail.value;
@@ -198,8 +201,7 @@
             dtNascVar == "" ||
             albumFavVar == ""
         ) {
-            //mensagemErroCadastro.innerHTML = "Revise seu cadastro! Há campos em branco.";
-            alert("aaaa")
+            mensagemErroCadastro.innerHTML = "Revise seu cadastro! Há campos em branco.";
             return false;
         }
 

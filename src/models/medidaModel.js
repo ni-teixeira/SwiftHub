@@ -30,30 +30,7 @@ function buscarUsuariosPorAlbum(){
     return database.executar(instrucaoSql);
 }
 
-function buscarDistribuicaoIdade() {
-    var instrucaoSql = `
-        SELECT 
-            CASE 
-                WHEN TIMESTAMPDIFF(YEAR, data_nascimento, CURDATE()) < 18 THEN 'Menor de 18'
-                WHEN TIMESTAMPDIFF(YEAR, data_nascimento, CURDATE()) BETWEEN 18 AND 24 THEN '18-24'
-                WHEN TIMESTAMPDIFF(YEAR, data_nascimento, CURDATE()) BETWEEN 25 AND 34 THEN '25-34'
-                WHEN TIMESTAMPDIFF(YEAR, data_nascimento, CURDATE()) BETWEEN 35 AND 44 THEN '35-44'
-                ELSE '45+'
-            END as faixa_etaria,
-            COUNT(*) as quantidade,
-            ROUND((COUNT(*) * 100.0) / (SELECT COUNT(*) FROM usuario), 1) as porcentagem
-        FROM usuario
-        GROUP BY faixa_etaria
-        ORDER BY faixa_etaria
-    `;
-
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
-}
-
-
 module.exports = {
     buscarKPIs,
-    buscarUsuariosPorAlbum,
-    buscarDistribuicaoIdade
+    buscarUsuariosPorAlbum
 }

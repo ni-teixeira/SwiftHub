@@ -11,8 +11,4 @@ router.get("/usuarios-por-album", function (req, res) {
     medidaController.buscarUsuariosPorAlbum(req, res);
 });
 
-router.get("/distribuicao-idade", function (req, res) {
-    medidaController.buscarDistribuicaoIdade(req, res);
-});
-
 module.exports = router;

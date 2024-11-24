@@ -32,22 +32,6 @@ function buscarUsuariosPorAlbum(req, res) {
     });
 }
 
-function buscarDistribuicaoIdade(req, res) {
-    console.log(`Recuperando distribuição de idade dos usuários`);
-
-    medidaModel.buscarDistribuicaoIdade().then(function (resultado) {
-        if (resultado.length > 0) {
-            res.status(200).json(resultado);
-        } else {
-            res.status(204).send("Nenhum resultado encontrado!")
-        }
-    }).catch(function (erro) {
-        console.log(erro);
-        console.log("Houve um erro ao buscar distribuição de idade.", erro.sqlMessage);
-        res.status(500).json(erro.sqlMessage);
-    });
-}
-
 function buscarDadosGraficoAlbum(req, res) {
     console.log(`Recuperando dados para o gráfico de álbuns`);
 
@@ -76,6 +60,5 @@ function buscarDadosGraficoAlbum(req, res) {
 module.exports = {
     buscarKPIs,
     buscarUsuariosPorAlbum,
-    buscarDistribuicaoIdade,
     buscarDadosGraficoAlbum
 }
