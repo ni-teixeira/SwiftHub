@@ -38,6 +38,7 @@ function buscarDadosGraficoAlbum(req, res) {
     medidaModel.buscarUsuariosPorAlbum().then(function (resultado) {
         if (resultado.length > 0) {
             // formata os dados para o grafico
+            // O método map() é uma função de array em JavaScript que permite criar um novo array transformando cada elemento do array original. Manda pro chart
             const labels = resultado.map(r => r.nome_album);
             const dados = resultado.map(r => r.qtd_usuarios);
             const porcentagens = resultado.map(r => r.porcentagem);

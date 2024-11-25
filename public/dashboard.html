@@ -122,10 +122,11 @@
             })
             .then(data => {
                 if (data && data.length > 0) {
-                    // Processa os dados e plota o gráfico
+                    // processa os dados e plota o grafico
                     const labels = data.map(item => item.nome_album);
                     const values = data.map(item => item.qtd_usuarios);
 
+                    // cria o garfico com chartjs
                     const ctx = document.getElementById('myChart').getContext('2d');
                     const myChart = new Chart(ctx, {
                         type: 'bar',

@@ -14,15 +14,15 @@ create table usuario(
     email varchar(100) not null,
     senha varchar(30) not null,
     dtNasc date not null,
-    fkAlbum int unique not null,
+    fkAlbum int not null,
     constraint fkAlbumUser foreign key (fkAlbum) references album(idAlbum)
 );
 
 create table jogo(
 	idJogo int primary key auto_increment,
-    pontuacao int not null,
-    acertos int not null,
-    erros int not null,
+    pontuacao int,
+    acertos int,
+    erros int,
     fkUsuario int,
     constraint fkJogoUser foreign key (fkUsuario) references usuario(idUsuario)
 );
@@ -38,4 +38,8 @@ INSERT INTO album (nome, dtLancamento, qtdMusicas) VALUES
 ('Folklore', '2020-07-24', 16),
 ('Evermore', '2020-12-11', 15),
 ('Midnights', '2022-10-10', 13),
-('The Tortured Poets Departament', '2024-04-19', 31);
+('TTPD', '2024-04-19', 31);
+
+select * from usuario;
+select * from jogo;
+select * from album;
