@@ -5,8 +5,8 @@ function buscarKPIs() {
     SELECT 
         (SELECT COUNT(*) FROM usuario) as total_usuarios,
         (SELECT ROUND(AVG(TIMESTAMPDIFF(YEAR, dtNasc, CURDATE()))) FROM usuario) as media_idade,
-        (SELECT a.nome FROM album a 
-    JOIN usuario u ON a.idAlbum = u.fkAlbum
+        (SELECT a.nome FROM album as a 
+    JOIN usuario as u ON a.idAlbum = u.fkAlbum
     GROUP BY a.idAlbum, a.nome
     ORDER BY COUNT(*) DESC
     LIMIT 1) as album_mais_selecionado 
@@ -20,8 +20,8 @@ function buscarUsuariosPorAlbum() {
     SELECT
         a.nome as nome_album,
         COUNT(u.idUsuario) as qtd_usuarios
-    FROM album a
-    LEFT JOIN usuario u ON a.idAlbum = u.fkAlbum
+    FROM album as a
+    LEFT JOIN usuario as u ON a.idAlbum = u.fkAlbum
     GROUP BY a.idAlbum, a.nome
     ORDER BY qtd_usuarios DESC
     `;
