@@ -45,16 +45,16 @@
 
         <div class="indicadores">
             <div class="indicador">
-                <p id="titulo"> Quantidade de usuarios cadastrados: </p>
-                <p id="kpi1">  </p>
+                <p id="titulo"> Quantidade de usuários cadastrados: </p>
+                <p id="kpi1"> </p>
             </div>
             <div class="indicador">
-                <p id="titulo"> Media de idade: </p>
-                <p id="kpi2">  </p>
+                <p id="titulo"> Média de idade: </p>
+                <p id="kpi2"> </p>
             </div>
             <div class="indicador">
                 <p id="titulo"> Album mais curtido: </p>
-                <p id="kpi3">  </p>
+                <p id="kpi3"> </p>
             </div>
         </div>
 
@@ -84,12 +84,13 @@
 </html>
 
 <script>
+    // sempre que a pagina der load ele vai retornar as duas funcoes atualizadas
     window.onload = function () {
-        fetchKPIs();
-        fetchGraphData();
+        exibirKPIs();
+        exibirGrafico();
     };
 
-    function fetchKPIs() {
+    function exibirKPIs() {
         fetch('/medidas/kpis')
             .then(response => {
                 if (response.ok) {
@@ -111,7 +112,7 @@
             });
     }
 
-    function fetchGraphData() {
+    function exibirGrafico() {
         fetch('/medidas/usuarios-por-album')
             .then(response => {
                 if (response.ok) {
@@ -123,8 +124,13 @@
             .then(data => {
                 if (data && data.length > 0) {
                     // processa os dados e plota o grafico
-                    const labels = data.map(item => item.nome_album);
-                    const values = data.map(item => item.qtd_usuarios);
+                    var labels = [];
+                    var values = [];
+
+                    for (var i = 0; i < data.length; i++) {
+                        labels.push(data[i].nome_album);
+                        values.push(data[i].qtd_usuarios);
+                    }
 
                     // cria o garfico com chartjs
                     const ctx = document.getElementById('myChart').getContext('2d');
@@ -172,8 +178,8 @@
                     });
                 }
             })
-                .catch(error => {
-                    console.error('Erro ao obter dados do gráfico:', error);
-                });
-        }
+            .catch(error => {
+                console.error('Erro ao obter dados do gráfico:', error);
+            });
+    }
 </script>
