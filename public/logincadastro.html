@@ -105,10 +105,10 @@
                         </div>
 
                         <div class="botao-cadastro">
-                            <button class="cadastro-button" type="submit" onclick="cadastrar()">Cadastre-se</button>
+                            <button class="cadastro-button" type="submit" onclick="cadastrar(event)">Cadastre-se</button>
                         </div>
 
-                        <div class="mensagemErro" id="mensagemErroCadastro"></div>
+                        <div class="mensagemErro" id="mensagemErroCadastro" style="text-align: center;"></div>
 
                     </form>
                 </div>
@@ -182,7 +182,8 @@
         mensagemErroLogin.innerHTML = "";
     }
 
-    function cadastrar() {
+    function cadastrar(event) {
+        event.preventDefault();
 
         var mensagemErroCadastro = document.getElementById("mensagemErroCadastro");
         mensagemErroCadastro.innerHTML = "";
