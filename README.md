@@ -19,7 +19,3 @@
 ![MySQL](https://img.shields.io/badge/MySQL-pink?style=for-the-badge&logo=mysql&logoColor=black)
 
 </div>
-
-## ⁺˖ Screenshots: ⸝⸝
-
-## ⁺˖ Instalação local: ⸝⸝
